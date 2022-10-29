@@ -6,16 +6,15 @@ Transposon sequencing requires the creation of a transposon insertion library, w
 
 **Requirements**
 
+- Python [python]
 - [Burrows Wheeler Aligner][bwa]
 - [Samtools][samtools]
 - [Qualimap][quali]
-- R ([tidyverse][tidy], [data.table][d.table], [patchwork][patch])
 
 [bwa]: https://sourceforge.net/projects/bio-bwa/files/
 [samtools]: http://www.htslib.org/
-[tidy]: https://www.tidyverse.org/
-[d.table]: https://github.com/Rdatatable/data.table
-[patch]: https://github.com/thomasp85/patchwork
-[quali]: http://qualimap.bioinfo.cipf.es/
+[python] : https://www.python.org/
+[conda] : https://www.anaconda.com/
+**Tutorial**
 
-**Input Data**
+The easiest way to set up TnBox is to download the depedencies using the python package manager Anaconda [conda]. 
