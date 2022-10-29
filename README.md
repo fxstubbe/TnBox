@@ -13,8 +13,9 @@ Transposon sequencing requires the creation of a transposon insertion library, w
 
 [bwa]: https://sourceforge.net/projects/bio-bwa/files/
 [samtools]: http://www.htslib.org/
-[python] : https://www.python.org/
-[conda] : https://www.anaconda.com/
+[python]: https://www.python.org/
+[conda]: https://www.anaconda.com/
+
 **Tutorial**
 
 The easiest way to set up TnBox is to download the depedencies using the python package manager Anaconda [conda]. 
