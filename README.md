@@ -6,7 +6,7 @@ Transposon sequencing requires the creation of a transposon insertion library, w
 
 **Requirements**
 
-- [Python] [python]
+- [Python][python]
 - [Burrows Wheeler Aligner][bwa]
 - [Samtools][samtools]
 
@@ -17,4 +17,4 @@ Transposon sequencing requires the creation of a transposon insertion library, w
 
 **Tutorial**
 
-The easiest way to set up TnBox is to download the depedencies using the python package manager [Anaconda] [conda]. 
+The easiest way to set up TnBox is to download the depedencies using the python package manager [Anaconda][conda]. 
