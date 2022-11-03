@@ -71,20 +71,20 @@ On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox f
 
 ### 1. Process libraries
 
-The first step int any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto the genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
+The first step int any high throughput sequencing project is to map the sequencing reads onto a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto an indexed genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
 
 #### Transposon fishing
 
-Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. If the latter is true, tick the Parse miniTn5 tickbox. This will allow TnBox to map only transposon containing reads. Skipping this 
+Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. In the first scenario, there is no need to filter read containing a transposon and therefore the method works for libraries constructed with any transposon (e.g. miniTn5 or Mariner). On the other hand, if filtering is needed, then check the tickbox "Parse miniTn5". If omitted, lots of non-specific reads will map and weakened downstrean analysis. At the moment, only miniTn5 fishing is available.
 
 #### Select or Add a reference
 
-The first thing to do is import a genome of interest. Genomes can be downloaded from NCBI. For example, you can download Brucella abortus genome [here][abortus]. A few common references are provided with TnBox. Next time you'll use TnBox, the references you added will still be available.
+As previoulsy stated, sequencing reads need to be mapped onto a reference genome. Genomes (.fasta , .fna) can be dowaloaded from NCBI (e.g. [Brucella abortus][abortus]). A few references are provided with TnBox. Once added, your reference genome will appear in the list. Select the genome of interest (highlighted in blue) and proceed to the enxt step. 
 
 
 #### Add sequencing files (.fastq.gz)
 
-Add your files. Your sequecing reads must be with the file extension .fastq.gz otherwise TnBox will fail. Tn-seq are usually sequence in single-end but if your data has been sequenced i paired-end, then only include the forward reads (R1) as this is where the transposon lies. Similarly, sometimes your sequencing reads will be split over mutiple file. You can simply concaten them together as follow : 
+Add your sequencing reads. The files must use the extension .fastq.gz otherwise TnBox will fail. Tn-seq are usually sequence in single-end but, if your reads are paired-end, only provide the forward reads (R1) as this is where the transposon lies. Similarly, sometimes, sequencing reads will be split over mutiple file. You can simply concatenate them together as follow : 
 
 ```sh
 cat file_1 file_2 > concatenated_file
@@ -92,9 +92,11 @@ cat file_1 file_2 > concatenated_file
 
 #### Start the anaysis
 
-Click on start. That's it.
+Click on start. That's it. If nothing starts, make sure all the previous steps are correctly fulfilled.
 
 This process is time consuming. It largely depends on the amount of reads, the genome size ... but also your machine performance. Be patient, make yourself a cofee and come back later. TnBox provides a visual cue of where it is in the process. When the library name is orange, it's under process. When it turns green, TnBox is done with this library.
+
+***FYI : TnBox will produced both an aligmnet file (.bam) and two coverage file (more details below). Those are respectively stored in ./TnBox/bam and ./TnBox/data***
 
 ### 2. Get transposons insertion sites 
 
