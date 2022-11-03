@@ -79,7 +79,7 @@ Depending on the sequencing platform, your sequencing read will start right afte
 
 #### Select or Add a reference
 
-As previoulsy stated, sequencing reads need to be mapped onto a reference genome. Genomes (.fasta , .fna) can be dowaloaded from NCBI (e.g. [Brucella abortus][abortus]). A few references are provided with TnBox. Once added, your reference genome will appear in the list. Select the genome of interest (highlighted in blue) and proceed to the enxt step. 
+As previoulsy stated, sequencing reads need to be mapped onto a reference genome. Genomes (.fasta , .fna) can be dowaloaded from NCBI (e.g. [*Brucella abortus*][abortus]). A few references are provided with TnBox. Once added, your reference genome will appear in the list. Select the genome of interest (highlighted in blue) and proceed to the enxt step. 
 
 
 #### Add sequencing files (.fastq.gz)
@@ -96,7 +96,7 @@ Click on start. That's it. If nothing starts, make sure all the previous steps a
 
 This process is time consuming. It largely depends on the amount of reads, the genome size ... but also your machine performance. Be patient, make yourself a cofee and come back later. TnBox provides a visual cue of where it is in the process. When the library name is orange, it's under process. When it turns green, TnBox is done with this library.
 
-***FYI : TnBox will produced both an aligmnet file (.bam) and two coverage file (more details below). Those are respectively stored in ./TnBox/bam and ./TnBox/data***
+*FYI : TnBox will produced both an aligmnet file (.bam) and two coverage file (more details below). Those are respectively stored in ./TnBox/bam and ./TnBox/data*
 
 ### 2. Get transposons insertion sites 
 
