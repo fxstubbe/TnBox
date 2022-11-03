@@ -105,12 +105,12 @@ Now that the reads have been aligned to the genome of interest, it's time extrac
 
 #### Define metrics for the algorithms
 
-**Trim end** 
+##### Trim end 
 
 Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. 
 This parameter is used for both the Rslide and TnIF algorithms (see below)
 
-**R window**, **Slide**
+##### R window, Slide
 
 While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 200 as described in [Sternon et al.,][sternon] and the increment is set to 5. 
 
