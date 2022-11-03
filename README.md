@@ -67,29 +67,34 @@ On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox f
 
 ## Analysis
 
-TnBox interface is divided into 4 main panels : 
-- 1. Process libraries
-- 2. Get transposons insertion sites
-- 3. Indexing
-- 4. Explore
-
-Each panel is designed to fulfill a step of the analysis pipeline
-
-
-
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/TnBox.png)
-
 
 ### 1. Process libraries
 
 The first step int any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto the genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
 
+#### Transposon fishing
+
+Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. If the latter is true, tick the Parse miniTn5 tickbox. This will allow TnBox to map only transposon containing reads. Skipping this 
+
+#### Select or Add a reference
+
+The first thing to do is import a genome of interest. Genomes can be downloaded from NCBI. For example, you can download Brucella abortus genome [here][abortus]. A few common references are provided with TnBox. Next time you'll use TnBox, the references you added will still be available.
 
 
-The first thing to do is import a genome of interest. Genomes can be downloaded from NCBI. For example, you can download Brucella abortus genome [here][abortus]. A few common references are provided with TnBox.
+#### Add sequencing files (.fastq.gz)
 
+Add your files. Your sequecing reads must be with the file extension .fastq.gz otherwise TnBox will fail. Tn-seq are usually sequence in single-end but if your data has been sequenced i paired-end, then only include the forward reads (R1) as this is where the transposon lies. Similarly, sometimes your sequencing reads will be split over mutiple file. You can simply concaten them together as follow : 
 
-Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. If the latter is true, tick the Parse miniTn5 tickbox. This will allow TnBox to map only transposon containing reads. Skipping this  
+```sh
+cat file_1 file_2 > concatenated_file
+```
+
+#### Start the anaysis
+
+Click on start. That's it.
+
+This process is time consuming. It largely depends on the amount of reads, the genome size ... but also your machine performance. Be patient, make yourself a cofee and come back later. TnBox provides a visual cue of where it is in the process. When the library name is orange, it's under process. When it turns green, TnBox is done with this library.
 
 ### 2. Get transposons insertion sites 
 
@@ -98,13 +103,20 @@ Now that the reads have been aligned to the genome of interest, it's time extrac
 
 #### Define metrics for the algorithms
 
-** Trim end  ** 
+**Trim end** 
 
 Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. 
+This parameter is used for both the Rslide and TnIF algorithms (see below)
 
-** R window  **, ** Slide **
+**R window**, **Slide**
 
 While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 100 as described in [Potemberg et al.,][] [JF et al.,][]. 
+
+#### Select files and algorithm
+
+When processing the libraries, TnBox generated 2 types of files :
+i. TA files, where only 5' end of each mapped read has been counted. This is equivalent to the exact insertion site. This is the recommended method when looking for essential genes.
+ii. TnIF files, where the whole mapped read has been counted. Even if this method is less sensitive to detect essential genes, it performs better when using the TnIF algorithm which has for goal to detect essentiality variations across several conditions as described in [Potemberg et al., ][] 
 
 
 ### 3. Indexing
