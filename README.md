@@ -77,10 +77,14 @@ Each panel is designed to fulfill a step of the analysis pipeline
 
 ### 1. Process libraries
 
-The first step into any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. 
+The first step int any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto the genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
+
+![My Image](./images/panel1.png)
+
+The first thing to do is import a genome of interest. Genomes can be downloaded from NCBI. For example, you can download Brucella abortus genome [here][abortus]. A few common references are provided with TnBox.
 
 
-
+Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. If the latter is true, tick the Parse miniTn5 tickbox. This will allow TnBox to map only transposon containing reads. Skipping this  
 ## License
 
 MIT
@@ -103,3 +107,4 @@ MIT
 
 [bbmap]: https://github.com/BioInfoTools/BBMap
 
+[abortus]:https://www.ncbi.nlm.nih.gov/genome/520
