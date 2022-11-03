@@ -75,12 +75,16 @@ TnBox interface is divided into 4 main panels :
 
 Each panel is designed to fulfill a step of the analysis pipeline
 
+
+
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/TnBox.png)
+
+
 ### 1. Process libraries
 
 The first step int any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto the genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
 
 
-![](https://github.com/fxstubbe/TnBox/blob/main/Images/TnBox.png)
 
 The first thing to do is import a genome of interest. Genomes can be downloaded from NCBI. For example, you can download Brucella abortus genome [here][abortus]. A few common references are provided with TnBox.
 
