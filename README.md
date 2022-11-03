@@ -5,12 +5,13 @@
 TnBox is a user friendly toolbox for the analysis of high throughput mutant libraries (Tn-seq). 
 It provides a set of tools allowing the user to parse and align the sequencing reads on a prokaryotic genome. It then implements two algorithms (Rslide & TnIF) for the study of gene essentiality.  
 
+For support, questions or requests, please contact: francois-xavier.stubbe@unamur.be
 
 ## Installation & quick start
 
 TnBox comes as a simple python program that works on both macOS and Linux systems. However, a few dependencies need to be installed and set in your PATH. Similarly, a couple python packages need to be downloaded. There are many ways to install these but the eaisest way might be to use the python package manager [Anaconda][conda]. Since Anaconda comes along a version of python, it is not necessary to have python pre-installed on your machine.
 
-### Install dependencies with conda on linux/macOS systems
+#### Install dependencies with conda on linux/macOS systems
 
 - [Burrow Wheeler Aligner][bwa] 
 - [Samtools][samtools]
@@ -25,7 +26,7 @@ conda install -c bioconda samtools
 conda install -c bioconda bedtools
 conda install -c anaconda git
 ```
-### Install python packages with conda on linux/macOS systems
+#### Install python packages with conda on linux/macOS systems
 
 - [Numpy][python]
 - [Pandas][bwa] 
@@ -41,7 +42,7 @@ conda install -c anaconda matplotlib
 conda install -c anaconda searborn
 ```
 
-### Setting up and testing TnBox
+#### Setting up and testing TnBox
 
 ##### Clone TnBox
 
@@ -62,7 +63,22 @@ cd Desktop/TnBox/
 python TnBox.py
 ```
 
+On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox folder. This steps is crucial and if not executed properly will lead to failure. If an interface opens up : congrats ! TnBox is now woriking on your computer
+
 ## Analysis
+
+TnBox interface is divided into 4 main panels : 
+- 1. Process libraries
+- 2. Get transposons insertion sites
+- 3. Indexing
+- 4. Explore
+
+Each panel is designed to fulfill a step of the analysis pipeline
+
+### 1. Process libraries
+
+The first step into any high throughput sequencing project is to map the sequencing reads (.fastq.gz) onto a a genome of interest. 
+
 
 
 ## License
@@ -85,5 +101,5 @@ MIT
 [plt]: https://matplotlib.org/
 [sns]: https://seaborn.pydata.org/
 
-
+[bbmap]: https://github.com/BioInfoTools/BBMap
 
