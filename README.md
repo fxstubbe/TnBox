@@ -90,6 +90,28 @@ The first thing to do is import a genome of interest. Genomes can be downloaded 
 
 
 Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. If the latter is true, tick the Parse miniTn5 tickbox. This will allow TnBox to map only transposon containing reads. Skipping this  
+
+### 2. Get transposons insertion sites 
+
+#### Choose or Add a reference (.gff)
+Now that the reads have been aligned to the genome of interest, it's time extract where the transposons are. The first step is to select the appropirate reference or the add your reference of choice in gff format. For example, you can dowload Brucella abortus reference [here][abortus]. 
+
+#### Define metrics for the algorithms
+
+** Trim end  ** 
+
+Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. 
+
+** R window  **, ** Slide **
+
+While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 100 as described in [Potemberg et al.,][] [JF et al.,][]. 
+
+
+### 3. Indexing
+
+### 4. Explore
+
+
 ## License
 
 MIT
