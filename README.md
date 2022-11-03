@@ -110,7 +110,7 @@ This parameter is used for both the Rslide and TnIF algorithms (see below)
 
 **R window**, **Slide**
 
-While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 100 as described in [Sternon et al.,][sternon]. 
+While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 200 as described in [Sternon et al.,][sternon] and the increment is set to 5. 
 
 #### Select files and algorithm
 
