@@ -105,20 +105,31 @@ Now that the reads have been aligned to the genome of interest, it's time extrac
 
 #### Define metrics for the algorithms
 
-##### Trim end 
+`Trim end` 
 
 Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. 
 This parameter is used for both the Rslide and TnIF algorithms (see below)
 
-##### R window, Slide
+`R window`, `Slide`
 
-While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 200 as described in [Sternon et al.,][sternon] and the increment is set to 5. 
+While using the RSlide algorithm, a sliding window of size n (`R window`) is moved with an increment p (`Slide`) over the genome. By default, the R window is set to be 200 as described in [Sternon et al.,][sternon] and the increment is set to 5. 
+
 
 #### Select files and algorithm
 
 When processing the libraries, TnBox generated 2 types of files :
 i. TA files, where only 5' end of each mapped read has been counted. This is equivalent to the exact insertion site. This is the recommended method when looking for essential genes.
 ii. TnIF files, where the whole mapped read has been counted. Even if this method is less sensitive to detect essential genes, it performs better when using the TnIF algorithm which has for goal to detect essentiality variations across several conditions as described in [Potemberg et al., ][potemberg] 
+
+
+
+`Rslide`
+
+Briefly; the coverage file is split into windows matching the input metrics. For example a 3 278 307 bp genome is split into 655,662 windows. For each window, the coverage sum is computed . Each gene is then assigned an *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). 
+
+
+`TnIF`
+
 
 
 ### 3. Indexing
