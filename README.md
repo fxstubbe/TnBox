@@ -3,7 +3,7 @@
 
 
 TnBox is a user friendly toolbox for the analysis of high throughput mutant libraries (Tn-seq). 
-It provides a set of tools allowing the user to parse and align the sequencing reads on a prokaryotic genome. It then implements two algorithms (Rslide & TnIF) for the study of gene essentiality.  
+It provides a set of tools allowing the user to parse and align sequencing reads on a prokaryotic genome. It then implements two algorithms (Rslide & TnIF) for the study of gene essentiality.  
 
 For support, questions or requests, please contact: francois-xavier.stubbe@unamur.be
 
