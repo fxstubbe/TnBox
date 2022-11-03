@@ -110,13 +110,13 @@ This parameter is used for both the Rslide and TnIF algorithms (see below)
 
 **R window**, **Slide**
 
-While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 100 as described in [Potemberg et al.,][] [JF et al.,][]. 
+While using the RSlide algorithm, a sliding window of size n (R window) is moved with an increment p (slide) over the genome. By default, the R window is set to be 100 as described in [Sternon et al.,][sternon]. 
 
 #### Select files and algorithm
 
 When processing the libraries, TnBox generated 2 types of files :
 i. TA files, where only 5' end of each mapped read has been counted. This is equivalent to the exact insertion site. This is the recommended method when looking for essential genes.
-ii. TnIF files, where the whole mapped read has been counted. Even if this method is less sensitive to detect essential genes, it performs better when using the TnIF algorithm which has for goal to detect essentiality variations across several conditions as described in [Potemberg et al., ][] 
+ii. TnIF files, where the whole mapped read has been counted. Even if this method is less sensitive to detect essential genes, it performs better when using the TnIF algorithm which has for goal to detect essentiality variations across several conditions as described in [Potemberg et al., ][potemberg] 
 
 
 ### 3. Indexing
@@ -147,3 +147,6 @@ MIT
 [bbmap]: https://github.com/BioInfoTools/BBMap
 
 [abortus]:https://www.ncbi.nlm.nih.gov/genome/520
+
+[sternon]:https://journals.asm.org/doi/10.1128/IAI.00312-18
+[potemberg]: https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010621
