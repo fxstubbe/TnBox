@@ -10,7 +10,7 @@ It provides a set of tools allowing the user to parse and align the sequencing r
 
 TnBox comes as a simple python program that works on both macOS and Linux systems. However, a few dependencies need to be installed and set in your PATH. Similarly, a couple python packages need to be downloaded. There are many ways to install these but the eaisest way might be to use the python package manager [Anaconda][conda]. Since Anaconda comes along a version of python, it is not necessary to have python pre-installed on your machine.
 
-##### Install dependencies with conda on linux/macOS systems
+### Install dependencies with conda on linux/macOS systems
 
 - [Burrow Wheeler Aligner][bwa] 
 - [Samtools][samtools]
@@ -25,7 +25,7 @@ conda install -c bioconda samtools
 conda install -c bioconda bedtools
 conda install -c anaconda git
 ```
-##### Install python packages with conda on linux/macOS systems
+### Install python packages with conda on linux/macOS systems
 
 - [Numpy][python]
 - [Pandas][bwa] 
@@ -41,9 +41,9 @@ conda install -c anaconda matplotlib
 conda install -c anaconda searborn
 ```
 
-##### Setting up and testing TnBox
+### Setting up and testing TnBox
 
-###### Clone TnBox
+##### Clone TnBox
 
 To install TnBox, clone this repository using git : 
 ```sh
@@ -51,7 +51,7 @@ git clone https://github.com/fxstubbe/TnBox
 ```
 Alternatively, you can also download TnBox using the green button at page's top.
 
-###### Setting up TnBox
+##### Setting up TnBox
 
 If you correctly installed all the required repositories and packages, TnBox is ready to use as it is. To start the program, you need to cd into TnBox folder and TnBox.py.
 
