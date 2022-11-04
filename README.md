@@ -75,7 +75,13 @@ The first step int any high throughput sequencing project is to map the sequenci
 
 #### Transposon fishing
 
-Depending on the sequencing platform, your sequencing read will start right after the inserted transposon or will include the transposon. In the first scenario, there is no need to filter read containing a transposon and therefore the method works for libraries constructed with any transposon (e.g. miniTn5 or Mariner). On the other hand, if filtering is needed, then check the tickbox "Parse miniTn5". If omitted, lots of non-specific reads will map and weakened downstrean analysis. At the moment, only miniTn5 fishing is available.
+We recommend sequencing your miniTn5 libraries with FASTERIS.
+
+In the past, Tn-seq libraries where often sequenced on Illumina HiSeq intruments. With those machines a nested strategy using a specific primer matching the 3'end of the transposon. Therefore, the first read base was the transposon insertion site. On newer machines (e.g. NextSeq, NovaSeq), sequencing reactions with specific primers aren't reliable. Libraires are now sequenced from the illumina adapters, which then re-sequence the end of the transposon. To separate specific from aspecific reads, it is necessary to separate reads containing the transposon from reads that do not (up to 35% of the library). By checking the tickbox "miniTn5", TnBox will filter transposon containing reads and trim out the transposon sequence prior to mapping (bottom panel, image below). If omitted, lots of non-specific reads will map and weakened downstrean analysis. 
+
+Both Mariner and miniTn5 are available to parse. However, this methode has only been used and confirmed on miniTn5 libraires.
+
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/aspecific_mapping.png)
 
 #### Select or Add a reference
 
