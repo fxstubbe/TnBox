@@ -75,7 +75,7 @@ The first step int any high throughput sequencing project is to map the sequenci
 
 #### Transposon fishing
 
-We recommend sequencing your miniTn5 libraries with FASTERIS.
+We recommend sequencing of miniTn5 libraries with the [in-house transposon sequencing service][fasteris] provided by fasteris.
 
 In the past, Tn-seq libraries where often sequenced on Illumina HiSeq intruments. With those machines a nested strategy using a specific primer matching the 3'end of the transposon. Therefore, the first read base was the transposon insertion site. On newer machines (e.g. NextSeq, NovaSeq), sequencing reactions with specific primers aren't reliable. Libraires are now sequenced from the illumina adapters, which then re-sequence the end of the transposon. To separate specific from aspecific reads, it is necessary to separate reads containing the transposon from reads that do not (up to 35% of the library). By checking the tickbox "miniTn5", TnBox will filter transposon containing reads and trim out the transposon sequence prior to mapping (bottom panel, image below). If omitted, lots of non-specific reads will map and weakened downstrean analysis. 
 
@@ -157,15 +157,12 @@ MIT
 [python]: https://www.python.org/
 [conda]: https://www.anaconda.com/
 [git]: https://git-scm.com/
-
 [pandas]: https://pandas.pydata.org/
 [numpy]: https://numpy.org/
 [plt]: https://matplotlib.org/
 [sns]: https://seaborn.pydata.org/
-
 [bbmap]: https://github.com/BioInfoTools/BBMap
-
 [abortus]:https://www.ncbi.nlm.nih.gov/genome/520
-
+[fasteris]:https://www.fasteris.com/en-us/NGS/DNA-sequencing/Tn-Seq
 [sternon]:https://journals.asm.org/doi/10.1128/IAI.00312-18
 [potemberg]: https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010621
