@@ -142,6 +142,7 @@ Briefly; the coverage file is split into windows matching the input metrics. For
 
 ### 4. Explore
 
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/com.png)
 
 ## License
 
