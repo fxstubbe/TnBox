@@ -41,6 +41,8 @@ class TnBox():
         my_pics = list(Path(f"{os.getcwd()}/Graph/").glob('**/*'))
         self.my_data.update( { "Graph" : list(set([file.stem for file in my_pics])) } )
 
+        self.my_data["Experiment"] = list()
+
         #Initiate an empty index key
         self.my_data["Index"] = ["--"]
         self.my_data["Index_path"] = list()
@@ -127,14 +129,16 @@ class TnBox():
         Label(left_frame, text = "1. Process Libraries",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0)
 
         # Add a checkbutton 
-        Label(library_bar, text="Check if Transposon fishing is required").grid(row=0, column=0, padx=5, pady=0)
+        Label(library_bar, text="1.1 Transposon fishing", font=("Arial Bold", 13)).grid(row=0, column=0, padx=5, pady=0)
         self.CheckVar= IntVar()
-        self.check_library = Checkbutton(library_bar, text='Parse Transposon',variable=self.CheckVar, onvalue=1, offvalue=0)
+        self.check_library = Checkbutton(library_bar, text='miniTn5',variable=self.CheckVar, onvalue=1, offvalue=0)
         self.check_library.grid(column=0, row=1, sticky = W)
+        self.check_library_mariner = Checkbutton(library_bar, text='mariner',variable=self.CheckVar, onvalue=2, offvalue=0)
+        self.check_library_mariner.grid(column=0, row=2, sticky = W)
 
 
         # Add a listbox within the tool_bar
-        Label(tool_bar, text="Select Reference Genome (.fasta)").grid(row=1, column=1, padx=5, pady=0)
+        Label(tool_bar, text="1.2 Select Reference Genome", font=("Arial Bold", 13)).grid(row=1, column=1, padx=5, pady=0)
         self.list_box = Listbox(tool_bar)
         self.list_box.grid(column=0, row=2, columnspan = 2)
         self.refresh_list(self.list_box, "Databases")
@@ -142,7 +146,7 @@ class TnBox():
         self.btn_list_ref.grid(column=1, row=3)
 
          # Add a listbox within the file_bar
-        Label(file_bar, text="Select Sequencing files (.fastq.gz)").grid(row=0, column=0, columnspan = 2 , padx=5, pady=0)
+        Label(file_bar, text="1.3 Select Sequencing files", font=("Arial Bold", 13)).grid(row=0, column=0, columnspan = 2 , padx=5, pady=0)
         self.fastq_box = Listbox(file_bar)
         self.btn_fastq_add = Button(file_bar, text="Add", command = lambda : self.get_fastq(self.btn_fastq_rem))
         self.btn_fastq_rem = Button(file_bar, text="Remove", command = lambda: self.delete_item_listbox(self.fastq_box, "Experiment"))
@@ -158,11 +162,11 @@ class TnBox():
     # -------- -------- Set up the GFF panel & Metrics  -------- -------- #
 
         # Labelling the r
-        Label(right_frame, text = "2. Get miniTn5 insertion sites",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0, columnspan = 2)
+        Label(right_frame, text = "2. Get transposon  insertion sites",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0, columnspan = 3)
 
         
         #Subpanel labelling
-        Label(gff_bar, text="2.1. Select Reference").grid(row=0, column=0, columnspan = 2 , padx=5, pady=0)
+        Label(gff_bar, text="2.1. Select Reference", font = ("Arial Bold", 13)).grid(row=0, column=0, columnspan = 2 , padx=5, pady=0)
         
         #Option box and adding GFF
         self.ann_set = StringVar()
@@ -174,19 +178,19 @@ class TnBox():
         self.ann_btn_add.grid(row=1, column=1)
 
 
-        Label(gff_bar, text="2.2. Define metrics").grid(row=2, column=0, columnspan = 2 , padx=5, pady=0)
+        Label(gff_bar, text="2.2. Define metrics", font = ("Arial Bold", 13) ).grid(row=2, column=0, columnspan = 2 , padx=5, pady=0)
         #Metrics widget
-        Label(gff_bar, text = "Trim end : ", font=("Arial Bold", 13)).grid(row=3, column=0, sticky=W )
+        Label(gff_bar, text = "Trim end : ", font=("Arial", 13)).grid(row=3, column=0, sticky=W )
         self.trim_entry = Entry( gff_bar, width = 6)
         self.trim_entry.grid(row=3, column = 1)
         self.trim_entry.insert(0, 10)
 
-        Label(gff_bar, text = "R window : ", font=("Arial Bold", 13)).grid(row=4, column=0, sticky=W )
+        Label(gff_bar, text = "R window : ", font=("Arial", 13)).grid(row=4, column=0, sticky=W )
         self.Rwindow_entry = Entry( gff_bar,  width = 6)
         self.Rwindow_entry.grid(row=4, column = 1)
-        self.Rwindow_entry.insert(0, 100)
+        self.Rwindow_entry.insert(0, 200)
 
-        Label(gff_bar, text = "Slide : ", font=("Arial Bold", 13)).grid(row=5, column=0, sticky=W )
+        Label(gff_bar, text = "Slide : ", font=("Arial", 13)).grid(row=5, column=0, sticky=W )
         self.RSlide_entry = Entry( gff_bar, width = 6)
         self.RSlide_entry.grid(row=5, column = 1)
         self.RSlide_entry.insert(0, 5)
@@ -194,7 +198,7 @@ class TnBox():
     # -------- -------- Set up the algorithm panel -------- -------- #
 
         #Subpanel labelling
-        Label(gff_bar_list, text="2.3. Select files and algorithm").grid(row=0, column=0 ,columnspan = 4, padx=5, pady=0)
+        Label(gff_bar_list, text="2.3. Select files and algorithm", font = ("Arial Bold", 13)).grid(row=0, column=0 ,columnspan = 4, padx=5, pady=0)
 
         self.TA_box = Listbox(gff_bar_list, selectmode = "multiple")
         self.TnIF_box = Listbox(gff_bar_list, selectmode = "multiple")
@@ -222,7 +226,7 @@ class TnBox():
         Label(lower_frame, text = "3. Indexing",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0, columnspan = 2)
 
         # Open file of interest
-        Label(index_bar, text = "Choose file : ",  font=("Arial Bold", 13)).grid(row=1, column=0, sticky=W)
+        Label(index_bar, text = "Choose file : ",  font=("Arial ", 13)).grid(row=1, column=0, sticky=W)
         self.file_to_ref_add = Button(index_bar, text="Load file", command = lambda : self.get_file_to_index(self.file_to_ref_add))
         self.file_to_ref_add.grid(column=1, row=1, padx=5, pady=0)
 
@@ -231,14 +235,14 @@ class TnBox():
         self.file_to_ref_del.grid(column=2, row=1, padx=5, pady=0)
 
         # OptionMenu to select the library you wanna use as index
-        Label(index_bar, text = "Select control : ",  font=("Arial Bold", 13)).grid(row=2, column=0, sticky=W)
+        Label(index_bar, text = "Select control : ",  font=("Arial ", 13)).grid(row=2, column=0, sticky=W)
         self.index_set = StringVar()
         #self.index_set.set("--")
         self.index_optionlist = OptionMenu(index_bar, self.index_set, *self.my_data["Index"])
         self.index_optionlist.grid(row=2,column=1,columnspan=2)
 
         #Button to start the indexing
-        Label(index_bar, text = "Index : ",  font=("Arial Bold", 13)).grid(row=3, column=0, sticky=W)
+        Label(index_bar, text = "Index : ",  font=("Arial ", 13)).grid(row=3, column=0, sticky=W)
         self.index_btn = Button(index_bar, text = "Index file", state=DISABLED ,command = lambda : self.launch_indexing(self.index_btn))
         self.index_btn.grid(row=3, column=1, columnspan = 2)
 
@@ -249,10 +253,10 @@ class TnBox():
 
         #-------- Top panel, let's set up a TnIF panel
 
-        Label(image_top, text = "Explore up to 2 libraries from a single file",  font=("Arial", 13)).grid(row=0, column=0, columnspan = 2 ,sticky=W)
+        Label(image_top, text = "Explore up to 2 libraries from a single file",  font=("Arial Bold", 13)).grid(row=0, column=0, columnspan = 2 ,sticky=W)
 
         #Make a button to load file to graph
-        Label(image_top, text = "Load file : ",  font=("Arial Bold", 13)).grid(row=1, column=0,sticky=W)
+        Label(image_top, text = "Load file : ",  font=("Arial", 13)).grid(row=1, column=0,sticky=W)
         self.file_to_graph_add = Button(image_top, text="Load file", command = lambda : self.Load_file_image(self.file_to_ref_add))
         self.file_to_graph_add.grid(row=1, column = 1, padx=5, pady=0)
 
@@ -261,13 +265,13 @@ class TnBox():
         self.file_to_graph_remove.grid(row=1, column = 2, padx=5, pady=0)
 
         #Load a file to graph from
-        Label(image_top, text = "Select library (1): ",  font=("Arial Bold", 13)).grid(row=2, column=0, sticky=W)
+        Label(image_top, text = "Select library (1): ",  font=("Arial", 13)).grid(row=2, column=0, sticky=W)
         self.pic_set_1 = StringVar()
         self.pic_optionlist_1 = OptionMenu(image_top, self.pic_set_1, *self.my_data["Graph"])
         self.pic_optionlist_1.grid(row=2,column=1,padx=5, pady=0)
 
         #Load a file to graph from
-        Label(image_top, text = "Select library (2): ",  font=("Arial Bold", 13)).grid(row=3, column=0, sticky=W)
+        Label(image_top, text = "Select library (2): ",  font=("Arial", 13)).grid(row=3, column=0, sticky=W)
         self.pic_set_2 = StringVar()
         self.pic_optionlist_2 = OptionMenu(image_top, self.pic_set_2, *self.my_data["Graph"])
         self.pic_optionlist_2.grid(row=3,column=1,padx=5, pady=0)
@@ -279,10 +283,10 @@ class TnBox():
 
         #-------- bottom  panel, let's set up a TnIF panel
 
-        Label(image_bottom, text = "Compare 2 libraries from 2 different files (e.g. RSlide vs TnIF)",  font=("Arial", 13)).grid(row=0, column=0, columnspan = 3,sticky=W)
+        Label(image_bottom, text = "Compare 2 libraries from 2 different files (e.g. RSlide vs TnIF)",  font=("Arial Bold", 13)).grid(row=0, column=0, columnspan = 3,sticky=W)
         Label(image_bottom, text = "Files must use the same reference (e.g. Melitensis 16MM) ",  font=("Arial", 13)).grid(row=1, column=0, columnspan = 3,sticky=W)
         #Make a button to load file to graph
-        Label(image_bottom, text = "Select File (1): ",  font=("Arial Bold", 13)).grid(row=2, column=0, sticky=W)
+        Label(image_bottom, text = "Select File (1): ",  font=("Arial", 13)).grid(row=2, column=0, sticky=W)
         self.file_low_1_add = Button(image_bottom, text="Load file", command = lambda : self.Load_file_to_compare(self.file_low_1_add, 0, self.file_optionlist_1, self.file_set_1 ))
         self.file_low_1_add.grid(row=2, column = 1, padx=5, pady=0)
         self.file_set_1 = StringVar()
@@ -290,7 +294,7 @@ class TnBox():
         self.file_optionlist_1.grid(row=2,column=3,padx=5, pady=0)
 
 
-        Label(image_bottom, text = "Select File (2): ",  font=("Arial Bold", 13)).grid(row=3, column=0, sticky=W)
+        Label(image_bottom, text = "Select File (2): ",  font=("Arial", 13)).grid(row=3, column=0, sticky=W)
         self.file_low_2_add = Button(image_bottom, text="Load file", command = lambda : self.Load_file_to_compare(self.file_low_2_add, 1, self.file_optionlist_2, self.file_set_2 ))
         self.file_low_2_add.grid(row=3, column = 1, padx=5, pady=0)
         self.file_set_2 = StringVar()
@@ -383,16 +387,23 @@ class TnBox():
 
     def get_fastq(self, button):
 
-        self.files=fd.askopenfilenames(initialdir="/", title="Select file")
+        self.files=list(fd.askopenfilenames(initialdir="/", title="Select file"))
+ 
         if len(self.files) == 0 :
             return
         else :
 
             #Check that all files are fastq
             my_paths = list(map(is_fastq, self.files))
+            print(my_paths)
             if all(my_paths) :
+
+                #What if there were files in experiment already ?
+
+                if len(list(self.my_data["Experiment"])) > 0 :
+                    self.files.extend(list(self.my_data["Experiment"]))
                 #Catch files
-                self.my_data.update({"Experiment": self.files})
+                self.my_data.update({"Experiment": list(set(self.files))})
                 print(self.my_data["Experiment"])
                 #Refresh the listbox
                 self.refresh_list(self.fastq_box, "Experiment")
@@ -532,8 +543,8 @@ class TnBox():
             self.update_mydata()
             self.refresh_list(self.TA_box, "TA")
             self.refresh_list(self.TnIF_box, "TnIF")
-            self.update_option_menu(self.reftnif_optionlist, self.my_data["TnIF"], self.reftnif_set )
-            self.update_option_menu(self.refta_optionlist, self.my_data["TnIF"], self.refta_set )
+            #self.update_option_menu(self.reftnif_optionlist, self.my_data["TnIF"], self.reftnif_set )
+            #self.update_option_menu(self.refta_optionlist, self.my_data["TnIF"], self.refta_set )
         button.config(text = "Done !")
 
 

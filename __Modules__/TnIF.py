@@ -44,7 +44,8 @@ def vectorizedCoverageMean(x):
 def compile_table(df, gff_p, output_p, graph_p, method, trim, Rwindow, Slide):
     
     '''
-    Function that computes a TnIF. It is wrapped in launch compile transposon in tkin2
+    Function that computes a TnIF. It is wrapped in launch compile tr
+    sposon in tkin2
     
     method can take either 1 (TnIF) or 2 (R100) as argument
     

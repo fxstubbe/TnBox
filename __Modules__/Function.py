@@ -28,7 +28,7 @@ def is_fasta(filename):
  path = Path(filename)
  try:
      ext = path.suffix
-     if ext == ".fasta":
+     if ext == ".fasta" or ext == ".fna":
          return True
      else : return False
  except IndexError:
@@ -40,13 +40,21 @@ def is_fastq(filename):
     Check if the extension is fastq.gz
     """
     path = Path(filename)
-    try:
-        ext = "{0}{1}".format(path.stem.split('.')[1] , path.suffix)
-        if ext == "fastq.gz":
-            return True
-        else : return False
-    except IndexError:
-        return False
+    print(path.suffix)
+    if path.suffix == ".fastq" : 
+        print("File is fastq")
+        return True
+    else : 
+        try:
+            ext = "{0}{1}".format(path.stem.split('.')[1] , path.suffix)
+            if ext == "fastq.gz":
+                print("File is fastq.gz")
+                return True
+            else : 
+                print("Wrong extension")
+                return False
+        except IndexError:
+            return False
 def make_dir(dirname):
     dir = dirname
     if Path(dir).is_dir():

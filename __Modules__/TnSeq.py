@@ -18,23 +18,31 @@ def make_reference(filename):
 
 def tn_seq(filename, reference, method, trim_trans,thread=4):
 
+	mini_tn5 = "GGTTGAGATGTGTATAAGAGACAG"
+	mariner = ""
+
     # Create a library object
-    Exp = Library(filename, "Exp")
+	Exp = Library(filename, "Exp")
 
     #Trim adapter
-    Exp.trim_adapters()
+	Exp.trim_adapters()
 
-    #If needed, fish the transposon
-    if trim_trans == 1 : 
-        Exp.trim_transposon()
-    else : Exp.quality_trim()
+	#If needed, fish the transposon
+	if trim_trans >  0 :
 
-    #Align to the reference
-    Exp.bwa_aln(str(reference),thread)
+		if trim_trans == 1 :
+			Exp.trim_transposon(mini_tn5)
+		else :
+			Exp.trim_transposon(mariner)
 
-    #Extract both the TnIF and TA site
-    Exp.get_TnIF()
-    Exp.get_TA()
+	else : Exp.quality_trim()
 
-    #Clear intermediate files 
-    Exp.clean_temp()
+	#Align to the reference
+	Exp.bwa_aln(str(reference),thread)
+
+	#Extract both the TnIF and TA site
+	Exp.get_TnIF()
+	Exp.get_TA()
+
+	#Clear intermediate files 
+	Exp.clean_temp()

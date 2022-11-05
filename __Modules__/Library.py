@@ -100,7 +100,7 @@ class Library(File):
             subprocess.run(cmd_qc , shell = True)
 
 
-    def trim_transposon(self):
+    def trim_transposon(self, transposon):
 
         #Needs to make sure the tool is installed and in a useful directory, maybe use github ? !!!
         bbduk = f"{os.getcwd()}/__Modules__/bbmap/bbduk.sh"
@@ -115,7 +115,7 @@ class Library(File):
             Cleaned = "{0}Cleaned_{1}.fastq.gz".format(self.temp_dir , self.ledger["Library"])
 
             #Command to pass
-            cmd_filter= "{0} in={1} out={2} outm={3} literal=GGTTGAGATGTGTATAAGAGACAG k=23 mm=f".format(bbduk, Trimmed, Unmatched , Matched )
+            cmd_filter= "{0} in={1} out={2} outm={3} literal={4} k=23 mm=f".format(bbduk, Trimmed, Unmatched , Matched , transposon)
             cmd_qc= "{0} in={1} out={2} ftl=31 trimq=20 qtrim=rl k=23 minlen=35".format(bbduk, Matched, Cleaned)
             
             #Run bbduk
