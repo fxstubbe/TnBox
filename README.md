@@ -1,11 +1,9 @@
 # TnBox
 ## _A Tn-seq Toolbox_
 
+Since its introduction in micriobiology labs, massively parallel sequencing coupled with transposson mutagenesis (Tn-seq) has become an important tool for molecular microbiologist to gain insight into bacterial fitness. Tools for the anaylsis of such data exist (e.g. [Tn-seq Explorer][explorer]) but they're not trivial to use for non bioinformatician. 
 
-TnBox is a user friendly toolbox for the analysis of high throughput mutant libraries (Tn-seq). 
-It provides a set of tools allowing the user to parse and align sequencing reads on a prokaryotic genome. It then implements two algorithms (Rslide & TnIF) for the study of gene essentiality.  
-
-Nowadays, Tn-seq is a tool used by wet lab researchers to gain insight into bacterial fitness. However, easy and user friendly tools processing raw sequencing reads into a comprehensive excel sheets are common. TnBox aims to provide a software enabling non bioinformatician to retrieve data from their experiments 
+TnBox is a user friendly software for the analysis of high throughput mutant libraries (Tn-seq). It's aim is to provide an easy to use tool enabling wet lab researchers to gain insight into their Tn-seq data. It provides a set of tools allowing the user to parse and align sequencing reads on a prokaryotic genome. It then implements two algorithms (Rslide & TnIF) for the study of gene essentiality and bacterial fitness and converts the computed output into comprehensive excel spreadsheets. Furthermore, visualisation tools are provided to allow the user to quickly explore the computed data.
 
 For support, questions or requests, please contact: francois-xavier.stubbe@unamur.be
 
@@ -169,3 +167,4 @@ MIT
 [fasteris]:https://www.fasteris.com/en-us/NGS/DNA-sequencing/Tn-Seq
 [sternon]:https://journals.asm.org/doi/10.1128/IAI.00312-18
 [potemberg]: https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010621
+[explorer]: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0126070
