@@ -76,7 +76,7 @@ On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox f
 
 The first step int any high throughput sequencing project is to map the sequencing reads onto a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto an indexed genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
 
-#### Transposon fishing
+#### 1.1 Transposon fishing
 
 We recommend sequencing of miniTn5 libraries with the [in-house transposon sequencing service][fasteris] provided by fasteris.
 
@@ -86,14 +86,14 @@ Both Mariner and miniTn5 are available to parse. However, this methode has only 
 
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/aspecific_mapping.png)
 
-#### Select or Add a reference
+#### 1.2 Select or Add a reference
 
 As previoulsy stated, sequencing reads need to be mapped onto a reference genome. Genomes (.fasta , .fna) can be dowaloaded from NCBI (e.g. [*Brucella abortus*][abortus]). A few references are provided with TnBox. Once added, your reference genome will appear in the list. Select the genome of interest (highlighted in blue) and proceed to the enxt step. 
 
 
-#### Add sequencing files (.fastq.gz)
+#### 1.3 Add sequencing files 
 
-Add your sequencing reads. The files must use the extension .fastq.gz otherwise TnBox will fail. Tn-seq are usually sequence in single-end but, if your reads are paired-end, only provide the forward reads (R1) as this is where the transposon lies. Similarly, sometimes, sequencing reads will be split over mutiple file. You can simply concatenate them together as follow : 
+Add your sequencing reads (.fastq.gz, .fastq) otherwise TnBox will fail. Tn-seq are usually sequence in single-end but, if your reads are paired-end, only provide the forward reads (R1) as this is where the transposon lies. Similarly, sometimes, sequencing reads will be split over mutiple file. You can simply concatenate them together as follow : 
 
 ```sh
 cat file_1 file_2 > concatenated_file
