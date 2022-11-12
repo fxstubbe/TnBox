@@ -109,6 +109,18 @@ This process is time consuming. It largely depends on the amount of reads, the g
 
 ### 2. Get transposons insertion sites 
 
+
+`Rslide or Sliding Window approach`
+
+This approach implements an alternative to the R200 metric introduced by [Sternon et al.,][sternon]. In their approach, the coverage file is split into windows of size 200 that are slide by 5 nucleotide. For example a 3 278 307 bp genome is split into 655,662 windows. For each window, the coverage sum is computed. This method has the advantage of being annotation independent and could be used to re-annotate genomic features as well as identifying essential protein regions.
+
+
+The TnBox Rslide algorithm has for objective to provide an insight in wether or not a given is gene  essential in a given condition (preferably growth on plate). To do so, it computes the R window strategy described above. It then assigns for each gene and *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). In other words; a gene having an Essentiality score of 20 means that , in that gene, there are 20x 200nt wide windows without any transposons. We consider that having a R200 score > 0 indicates the gene as essential.
+
+
+`TnIF or Insertion Density approach`
+
+
 #### Choose or Add a reference (.gff)
 Now that the reads have been aligned to the genome of interest, it's time extract where the transposons are. The first step is to select the appropirate reference or the add your reference of choice in gff format. For example, you can dowload Brucella abortus reference [here][abortus]. 
 
@@ -132,12 +144,6 @@ ii. TnIF files, where the whole mapped read has been counted. Even if this metho
 
 
 
-`Rslide`
-
-Briefly; the coverage file is split into windows matching the input metrics. For example a 3 278 307 bp genome is split into 655,662 windows. For each window, the coverage sum is computed . Each gene is then assigned an *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). 
-
-
-`TnIF`
 
 
 
