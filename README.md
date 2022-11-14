@@ -129,19 +129,13 @@ Now that the reads have been aligned to the genome of interest, it's time extrac
 
 Both the `Rslide or Sliding Window approach` and `TnIF or Insertion Density approach` can be fine tuned with different parameters.
 
-`Trim end` (Used in *Rslide* and *TnIF* algorithms)
 
-Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. Therefore, only the central 80% of each gene is considered. 
-
-
-`R window`, `Slide` (used only for *Rslide* algorith)
-**Rwindow**  equals to the sliding window size (default is 200).
-**Slide** equals to the increment between 2 sliding windows (dedault is 5) 
 Parameter  | algorithm | Default | Description
 ------------- | ------------- | ------------- | ------------- 
-Trim End  |  RSlide, TnIF |  10% | 5'and 3'end trimming (10% = computing over central 80%)
-R Windows | Rslide | 200 nt | Size of the sliding window
-Slide | Rlside | 5 nt | increment between each sliding window
+`Trim End`  |  RSlide, TnIF |  10% | 5' and 3'end trimming (10% = computing over central 80%)
+`R Windows` | Rslide | 200 nt | Size of the sliding window
+`Slide` | Rlside | 5 nt | increment between each sliding window
+
 
 
 
