@@ -167,9 +167,11 @@ For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF wa
 
 ### 4. Explore
 
-### 4. References
-
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/comp.png)
+
+## References
+
+There will be a couple of references
 
 ## License
 
