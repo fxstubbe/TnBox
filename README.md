@@ -117,15 +117,14 @@ This approach implements an alternative to the R200 metric introduced by [Sterno
 
 The TnBox Rslide algorithm has for objective to provide an insight in wether or not a given gene is  essential in a given condition (preferably growth on plate). To do so, it computes the R window strategy described above. It then assigns for each gene and *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). In other words; a gene having an Essentiality score of 20 means that , in that gene, there are 20x 200nt wide windows without any transposons. We consider that having a R200 score > 0 indicates the gene as essential.
 
-
 `TnIF or Insertion Density approach`
 
-This strategy aims at comparing the "essentiality" of a given in different conditions. TnBox implements the *transposon insertion freqeuncy (TnIF)* defined by [Potemberg et al., ][potemberg]. Briefly, for each gene the average log10(r+1)/l (where r is the read count on a given nucleotide and l is the gene length) is computed. For efficient comparison, an indexed table can be generated (see index section). 
+The `TnIF` algorithm which has for goal to detect essentiality variations across several condition. To do so, TnBox computes the *transposon insertion freqeuncy (TnIF)* defined by [Potemberg et al., ][potemberg]. Briefly, for each gene the average log10(r+1)/l (where r is the read count on a given nucleotide and l is the gene length) is computed. For efficient comparison, an indexed table can be generated (see index section). 
 
-#### Choose or Add a reference (.gff)
+#### 2.1 Choose or Add a reference (.gff)
 Now that the reads have been aligned to the genome of interest, it's time extract where the transposons are. The first step is to select the appropirate reference or the add your reference of choice in gff format. For example, you can dowload Brucella abortus reference [here][abortus]. 
 
-#### Define metrics for the algorithms
+#### 2.2 Define metrics for the algorithms
 
 Both the `Rslide or Sliding Window approach` and `TnIF or Insertion Density approach` can be fine tuned with different parameters.
 
@@ -139,18 +138,21 @@ Parameter  | algorithm | Default | Description
 
 
 
-#### Select files and algorithm
+#### 2.3 Select files and algorithm
 
 When processing the libraries, TnBox generated 2 types of files :
-i. TA files, where only 5' end of each mapped read has been counted. This is equivalent to the exact insertion site. This is the recommended method when looking for essential genes.
-ii. TnIF files, where the whole mapped read has been counted. Even if this method is less sensitive to detect essential genes, it performs better when using the TnIF algorithm which has for goal to detect essentiality variations across several conditions as described in [Potemberg et al., ][potemberg] 
+-   **TA (anchor) files**  
+When the coverage was computed, only the read  5'end was kept. Therefore, only the transposon insertion site (TA) is kept. The term *TA* is used in reference to the mariner transposon which insert in TA rich regions. This is the preferred type for the `Rslide` algorithm.
+
+-  **TnIF (covergae) files** 
+Instead of only mapping the 5'end, the whole read is counted in the coverage file. Even if the the method is slightly less sensistive for the detection of essential genes with tge `Rslide` algorithmm, it performs better when using the `TnIF`. This is the preferred type for the `TnIF` algorithm.
+
+First and foremost, make sure you have selected the right reference in the previous section. Then, select the files in the listbox of interest (TA or TnIF). Simply press on the algorithm of choice and choose where you wanna save the output table. In the table, each selected file will be added as a column (genes are rows). Once the button unlock, the file has been saved. Feel free to launch multiple algorithms simultanously (might significantly slow down your computer).
 
 
+### 3. Indexing & Delta (TnIF only)
 
 
-
-
-### 3. Indexing & Delta
 
 ### 4. Explore
 
