@@ -144,15 +144,26 @@ When processing the libraries, TnBox generated 2 types of files :
 -   **TA (anchor) files**  
 When the coverage was computed, only the read  5'end was kept. Therefore, only the transposon insertion site (TA) is kept. The term *TA* is used in reference to the mariner transposon which insert in TA rich regions. This is the preferred type for the `Rslide` algorithm.
 
--  **TnIF (covergae) files** 
-Instead of only mapping the 5'end, the whole read is counted in the coverage file. Even if the the method is slightly less sensistive for the detection of essential genes with tge `Rslide` algorithmm, it performs better when using the `TnIF`. This is the preferred type for the `TnIF` algorithm.
+-  **TnIF (coverage) files** 
+Instead of only mapping the 5'end, the whole read is counted in the coverage file. Even if the the method is slightly less sensistive for the detection of essential genes with tge `Rslide` algorithmm, it performs better when using the `TnIF`. This is the preferred type for the `TnIF` algorithm. Please do not use the `TnIF` if your mutational library isn't saturating.
 
 First and foremost, make sure you have selected the right reference in the previous section. Then, select the files in the listbox of interest (TA or TnIF). Simply press on the algorithm of choice and choose where you wanna save the output table. In the table, each selected file will be added as a column (genes are rows). Once the button unlock, the file has been saved. Feel free to launch multiple algorithms simultanously (might significantly slow down your computer).
 
-
 ### 3. Indexing & Delta (TnIF only)
 
+If you're using the `Rslide` algorithm, skip this panel.
 
+#### 3.1 Indexing
+
+TnIf reprenset a bimodal distribution where the second peak of the distribution correspond to non-essential genes. To allow correct library comparison, it is best to *index* your library(ies) of interest on a control. To do so, an easy method is to simply divide by the mode of the second peak. I could easily be done manually but to simplify  the process, TnBox implements an indexing algorithm. 
+
+Simply load the file you desire to index, choose the library you wish to use as reference and start the indexing. 
+
+It is to note that indexing will perform poorly on libraries with low diversity (e.g. bottleneck effect). 
+
+#### 3.1 Delta
+
+For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF was computed for the tested condition (TnIFcdt) and the control condition (TnIFCTRL). The frequency distribution of ΔTnIF values was plotted for both chromosomes and for each tested condition (S6 Fig), to identify the main peak of unaffected ΔTnIF values and its standard deviation. 2% of ΔTnIF values at each extremity were removed to avoid an influence of extreme values, the standard deviation was calculated on this distribution. Depending on the conditions tested, the standard deviation ranged from 0.049 and 0.244. The ΔTnIF values larger than 0.5 were thus selected as significant, since they correspond to 2 to 5 standard deviations from the mode, designating genes for which the TnIF value was decreased compared to the control condition.
 
 ### 4. Explore
 
