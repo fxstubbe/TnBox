@@ -108,3 +108,19 @@ def compile_index(no_index_p,  output_p ,control):
 
 	core_indexed.to_csv(output_p)	
 	print("Indexed table is printed")
+
+
+def Delta(file_p, output_p, Reference):
+
+	#Get the reference column
+	my_file  = pd.read_csv(file_p)
+
+	colnames = list(my_file.columns.values)
+	conditions = colnames[12:]
+
+	for Cdt in conditions:
+		my_file[Cdt] = my_file[Reference] - my_file[Cdt]
+
+	my_file.to_csv(output_p)	
+	print("Indexed table is printed")
+

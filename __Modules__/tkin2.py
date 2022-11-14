@@ -47,6 +47,10 @@ class TnBox():
         self.my_data["Index"] = ["--"]
         self.my_data["Index_path"] = list()
 
+        #Initiate an empty index key
+        self.my_data["Delta"] = ["--"]
+        self.my_data["Delta_path"] = list()
+
         #Initiate an empty graph key
         self.my_data["Graph"] = ["     "]
         self.my_data["Graph_path"] = list()
@@ -113,6 +117,11 @@ class TnBox():
 
         index_bar = Frame(lower_frame, width = 300, height = 20)
         index_bar.grid(row = 1, column = 0, padx=5, pady=5)
+
+        #------- The delta panel
+
+        delta_bar = Frame(lower_frame, width = 300, height = 20)
+        delta_bar.grid(row = 2, column = 0, padx=5, pady=5)
 
 
         #------- An image panel
@@ -223,7 +232,10 @@ class TnBox():
 
     # -------- -------- Set up the Indexing panel -------- -------- #
 
-        Label(lower_frame, text = "3. Indexing",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0, columnspan = 2)
+        Label(lower_frame, text = "3. Indexing & Delta (TnIF)",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0, columnspan = 2)
+
+
+        Label(index_bar, text = "3.1 Index on a reference ",  font=("Arial Bold", 14)).grid(row=0, column=0, sticky=W)
 
         # Open file of interest
         Label(index_bar, text = "Choose file : ",  font=("Arial ", 13)).grid(row=1, column=0, sticky=W)
@@ -246,7 +258,33 @@ class TnBox():
         self.index_btn = Button(index_bar, text = "Index file", state=DISABLED ,command = lambda : self.launch_indexing(self.index_btn))
         self.index_btn.grid(row=3, column=1, columnspan = 2)
 
-        # -------- -------- Set up the Graph panel -------- -------- #
+
+    # -------- -------- Set up the Delta panel -------- -------- #
+
+        Label(delta_bar, text = "3.2 Compute a delta",  font=("Arial Bold", 14)).grid(row=0, column=0, sticky=W)
+
+        # Open file of interest
+        Label(delta_bar, text = "Choose file : ",  font=("Arial ", 13)).grid(row=1, column=0, sticky=W)
+        self.file_to_delta_add = Button(delta_bar, text="Load file", command = lambda : self.get_file_to_delta(self.file_to_delta_add))
+        self.file_to_delta_add.grid(column=1, row=1, padx=5, pady=0)
+
+        # remove file of interest
+        self.file_to_delta_del = Button(delta_bar, text="Unload", state =DISABLED , command = lambda: self.unload_file_to_delta(self.file_to_delta_del))  
+        self.file_to_delta_del.grid(column=2, row=1, padx=5, pady=0)
+
+        # OptionMenu to select the library you wanna use as index
+        Label(delta_bar, text = "Select control : ",  font=("Arial ", 13)).grid(row=2, column=0, sticky=W)
+        self.delta_set = StringVar()
+        #self.index_set.set("--")
+        self.delta_optionlist = OptionMenu(delta_bar, self.delta_set, *self.my_data["Delta"])
+        self.delta_optionlist.grid(row=2,column=1,columnspan=2)
+
+        #Button to start the indexing
+        Label(delta_bar, text = "Delta : ",  font=("Arial ", 13)).grid(row=3, column=0, sticky=W)
+        self.delta_btn = Button(delta_bar, text = "Compute Delta", state=DISABLED ,command = lambda : self.launch_delta(self.delta_btn)) # Not good algorithm
+        self.delta_btn.grid(row=3, column=1, columnspan = 2)
+
+    # -------- -------- Set up the Graph panel -------- -------- #
 
         Label(image_frame, text = "4. Explore",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=5, columnspan = 2)
         
@@ -460,6 +498,53 @@ class TnBox():
         self.file_to_ref_add.config(text = "Load File", state=NORMAL)
         self.index_btn.config(state=DISABLED)
 
+
+    def get_file_to_delta(self, button):
+
+        #Make sure to empty the dictionnary from previous input files
+        self.my_data["Delta"].clear()
+        self.my_data["Delta_path"].clear()
+
+
+        print(self.my_data)
+
+        #Add the colomn names (except GFF columns) into a newly made index key
+        my_data = fd.askopenfilename(initialdir="/", title="Select file")
+        #Store the Index path
+        self.my_data["Delta_path"].append(my_data)
+        #Read the file
+        data = pd.read_csv(my_data)
+        #Get the colnames of interest
+        my_files = list(data.columns.values)[12:]
+        #Update the 
+        self.my_data["Delta"].extend(my_files) 
+
+        #Update the option Menu
+        self.update_option_menu(self.delta_optionlist, self.my_data["Delta"], self.delta_set )
+        
+        #Change state of indexing buttons
+        self.file_to_delta_del.config(state=NORMAL)
+        self.file_to_delta_add.config(text = "File Loaded", state=DISABLED)
+        self.delta_btn.config(state=NORMAL)
+
+    def unload_file_to_delta(self, button):
+
+        #Make sure to empty the dictionnary from previous input files
+        self.my_data["Delta"].clear()
+        self.my_data["Delta_path"].clear()
+
+        #Update the option Menu
+        self.update_option_menu(self.delta_optionlist, self.my_data["Delta"], self.delta_set )
+        self.delta_set.set("--")
+        
+
+        print(self.my_data)
+
+        #Change state of indexing buttons
+        self.file_to_delta_del.config(state=DISABLED)
+        self.file_to_delta_add.config(text = "Load File", state=NORMAL)
+        self.delta_btn.config(state=DISABLED)
+
     def Load_file_image(self, button):
 
         #Make sure to empty the dictionnary from previous input files
@@ -655,6 +740,26 @@ class TnBox():
 
         #Reactivate the button
         button.config(state=NORMAL)
+
+    def launch_delta(self, button):
+
+        #Deactivate the button while indexing
+        button.config(state=DISABLED)
+
+        control = self.delta_set.get()
+        input_p = self.my_data["Delta_path"][0] #that's no good
+
+        output_p = fd.asksaveasfilename(confirmoverwrite=True, title = "Select file",filetypes = (("CSV Files","*.csv"),))
+
+        #Check a save file has been selected and start computing
+        if output_p is None:  # user selected file
+            button.config(state=NORMAL)
+            return
+        else : Delta(input_p, output_p ,control)
+
+        #Reactivate the button
+        button.config(state=NORMAL)
+
 
      # -------- -------- -------- -------- Make some Graph -------- -------- -------- -------- #
 
