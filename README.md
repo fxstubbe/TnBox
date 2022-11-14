@@ -115,25 +115,29 @@ This process is time consuming. It largely depends on the amount of reads, the g
 This approach implements an alternative to the R200 metric introduced by [Sternon et al.,][sternon]. In their approach, the coverage file is split into windows of size 200 that are slide by 5 nucleotide. For example a 3 278 307 bp genome is split into 655,662 windows. For each window, the coverage sum is computed. This method has the advantage of being annotation independent and could be used to re-annotate genomic features as well as identifying essential protein regions.
 
 
-The TnBox Rslide algorithm has for objective to provide an insight in wether or not a given is gene  essential in a given condition (preferably growth on plate). To do so, it computes the R window strategy described above. It then assigns for each gene and *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). In other words; a gene having an Essentiality score of 20 means that , in that gene, there are 20x 200nt wide windows without any transposons. We consider that having a R200 score > 0 indicates the gene as essential.
+The TnBox Rslide algorithm has for objective to provide an insight in wether or not a given gene is  essential in a given condition (preferably growth on plate). To do so, it computes the R window strategy described above. It then assigns for each gene and *Essentiality score* equivalent to the number of windows having a sum of 0 (aka, no transposons jumped in that genomic region). In other words; a gene having an Essentiality score of 20 means that , in that gene, there are 20x 200nt wide windows without any transposons. We consider that having a R200 score > 0 indicates the gene as essential.
 
 
 `TnIF or Insertion Density approach`
 
+This strategy aims at comparing the "essentiality" of a given in different conditions. TnBox implements the *transposon insertion freqeuncy (TnIF)* defined by [Potemberg et al., ][potemberg]. Briefly, for each gene the average log10(r+1)/l (where r is the read count on a given nucleotide and l is the gene length) is computed. For efficient comparison, an indexed table can be generated (see index section). 
 
 #### Choose or Add a reference (.gff)
 Now that the reads have been aligned to the genome of interest, it's time extract where the transposons are. The first step is to select the appropirate reference or the add your reference of choice in gff format. For example, you can dowload Brucella abortus reference [here][abortus]. 
 
 #### Define metrics for the algorithms
 
-`Trim end` 
+Both the `Rslide or Sliding Window approach` and `TnIF or Insertion Density approach` can be fine tuned with different parameters.
 
-Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. 
-This parameter is used for both the Rslide and TnIF algorithms (see below)
+`Trim end` (Used in *Rslide* and *TnIF* algorithms)
 
-`R window`, `Slide`
+Since many genes can tolerate insertions in their 5' or 3', it is wise to remove those extremities while looking for insertion sites. By default, TnBox trims 10% of the transcript length on both 5' and 3' ends. Therefore, only the central 80% of each gene is considered. 
 
-While using the RSlide algorithm, a sliding window of size n (`R window`) is moved with an increment p (`Slide`) over the genome. By default, the R window is set to be 200 as described in [Sternon et al.,][sternon] and the increment is set to 5. 
+
+`R window`, `Slide` (used only for *Rslide* algorith)
+**Rwindow**  equals to the sliding window size (default is 200).
+**Slide** equals to the increment between 2 sliding windows (dedault is 5) 
+
 
 
 #### Select files and algorithm
@@ -147,7 +151,7 @@ ii. TnIF files, where the whole mapped read has been counted. Even if this metho
 
 
 
-### 3. Indexing
+### 3. Indexing & Delta
 
 ### 4. Explore
 
