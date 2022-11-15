@@ -37,64 +37,15 @@ from __Modules__.GFF_parser import *
 ##### -------- ---------------- ---------------- ---------------- -------- Libraries and packages needed  -------- ---------------- ---------------- ---------------- -------- #####
 
 
-# I think the easiest is to ask the user to download anaconda
+
+# -------- -------- BBAMP -------- -------- 
+
+# BBMAP is tared into __Modules__
+#Untar to make the tool available
 
 
-# -------- -------- Non standard libray packages -------- -------- #
-
-# Doens't check if 
-#packages = ['numpy', 'pandas', 'seaborn', 'pillow', 'seqio']
-
-
-#for pckg in packages : 
-
-#	if pckg in sys.modules:
-
-#		print(f"{pckg!r} already in sys.modules")
-#		pass
-
-#	elif (spec := importlib.util.find_spec(pckg)) is not None:
-
-#	# Install using conda
-#		subprocess.run(f"conda install - anaconda {pckg}" , shell = True)
-#
-#		print(f"{pckg!r} has been imported")
-
-#	else:
-#		print(f"can't find the {pckg!r} module")
-
-
-# -------- -------- Biological Tools & Git -------- -------- # Using ANACONDA
-
-
-#How to use the API ? 
-
-#The aligner
-#subprocess.run("conda install -c bioconda bwa" , shell = True)
-
-#The genome coverage
-#subprocess.run("conda install -c bioconda bedtools" , shell = True)
-
-#Git (to downaload BBMAP)
-#subprocess.run("conda install -c anaconda git" , shell = True)
-
-
-# -------- -------- BBAMP -------- -------- # USING GIT or TAR
-
-###Clone BBMAP in the working directory
-
-if os.path.exists(f"{os.getcwd()}/__Modules__/bbmap/") is False : 
-	subprocess.run("git clone https://github.com/BioInfoTools/BBMap.git ./__Modules__/bbmap" , shell = True)
-
-#Is than an ok way ? I could put a zip file and unzip it
-#Extract tar.gz fil
-#tar -xf ./ToolBox/Modules/BBMap_38.86.tar.gz -C ./ToolBox/Modules/
-
-
-
-
-
-
+bbamp_untar = f"tar -xf {os.getcwd()}/__Modules__/BBMap_39.01.tar.gz -C {os.getcwd()}/__Modules__/ "
+subprocess.run(bbamp_untar , shell = True)
 
 ##### -------- ---------------- ---------------- ---------------- -------- Create the TnBox instance  -------- ---------------- ---------------- ---------------- -------- #####
 
@@ -102,4 +53,6 @@ if os.path.exists(f"{os.getcwd()}/__Modules__/bbmap/") is False :
 root = Tk()
 e = TnBox(root)
 root.mainloop()
+
+
 
