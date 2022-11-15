@@ -20,6 +20,7 @@ TnBox comes as a simple python program that works on both macOS and Linux system
 - [Samtools][samtools]
 - [Bedtools][bedtools]
 - [Git][git]
+- [BioPython][biopython]
 
 Paste the following commands in a terminal
 
@@ -188,6 +189,7 @@ MIT
 [python]: https://www.python.org/
 [conda]: https://www.anaconda.com/
 [git]: https://git-scm.com/
+[biopython]: https://biopython.org/
 [pandas]: https://pandas.pydata.org/
 [numpy]: https://numpy.org/
 [plt]: https://matplotlib.org/
