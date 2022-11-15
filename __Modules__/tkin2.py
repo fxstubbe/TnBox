@@ -18,6 +18,7 @@ from __Modules__.TnSeq import *
 from __Modules__.TnIF import *
 from __Modules__.GFF_parser import *
 from __Modules__.Table_c import *
+from __Modules__.Artemis import *
 
 
         
@@ -123,13 +124,15 @@ class TnBox():
         delta_bar = Frame(lower_frame, width = 300, height = 20)
         delta_bar.grid(row = 2, column = 0, padx=5, pady=5)
 
-
         #------- An image panel
 
+        image_artemis = Frame(image_frame, width = 300, height = 300)
+        image_artemis.grid(row = 1, column = 0, padx=5, pady=5)
         image_top = Frame(image_frame, width = 300, height = 100)
-        image_top.grid(row = 1, column = 0, padx=5, pady=5)
+        image_top.grid(row = 2, column = 0, padx=5, pady=5)
         image_bottom = Frame(image_frame, width = 300, height = 300)
-        image_bottom.grid(row = 2, column = 0, padx=5, pady=5)
+        image_bottom.grid(row = 3, column = 0, padx=5, pady=5)
+
 
 
     # -------- -------- Set up the Alignment panel -------- -------- #
@@ -286,12 +289,12 @@ class TnBox():
 
     # -------- -------- Set up the Graph panel -------- -------- #
 
-        Label(image_frame, text = "4. Explore",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=5, columnspan = 2)
+        Label(image_frame, text = "4. Explore (Graphical options)",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=5, columnspan = 2)
         
 
         #-------- Top panel, let's set up a TnIF panel
 
-        Label(image_top, text = "Explore up to 2 libraries from a single file",  font=("Arial Bold", 13)).grid(row=0, column=0, columnspan = 2 ,sticky=W)
+        Label(image_top, text = "Explore up to 2 libraries from a single file",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 2 ,sticky=W)
 
         #Make a button to load file to graph
         Label(image_top, text = "Load file : ",  font=("Arial", 13)).grid(row=1, column=0,sticky=W)
@@ -321,8 +324,9 @@ class TnBox():
 
         #-------- bottom  panel, let's set up a TnIF panel
 
-        Label(image_bottom, text = "Compare 2 libraries from 2 different files (e.g. RSlide vs TnIF)",  font=("Arial Bold", 13)).grid(row=0, column=0, columnspan = 3,sticky=W)
+        Label(image_bottom, text = "Compare 2 libraries from 2 different files (e.g. RSlide vs TnIF)",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 3,sticky=W)
         Label(image_bottom, text = "Files must use the same reference (e.g. Melitensis 16MM) ",  font=("Arial", 13)).grid(row=1, column=0, columnspan = 3,sticky=W)
+
         #Make a button to load file to graph
         Label(image_bottom, text = "Select File (1): ",  font=("Arial", 13)).grid(row=2, column=0, sticky=W)
         self.file_low_1_add = Button(image_bottom, text="Load file", command = lambda : self.Load_file_to_compare(self.file_low_1_add, 0, self.file_optionlist_1, self.file_set_1 ))
@@ -343,6 +347,17 @@ class TnBox():
         self.draw_bottom = Button(image_bottom, text="Draw Graph", state =NORMAL ,command = lambda : self.Graph_comparison(self.draw_top,self.file_set_1, self.file_set_2 ))
         self.draw_bottom.grid(row=4, column = 0, padx=5, pady=0)
 
+
+        #-------- An artenis Panel
+        Label(image_artemis, text = "Make an Artemis File",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 3,sticky=W)
+        Label(image_artemis, text = "Convert a coverage file into an artemis compatible file) ",  font=("Arial", 13)).grid(row=1, column=0, columnspan = 3,sticky=W)
+
+        Label(image_artemis, text = "Select covetage file : ",  font=("Arial", 13)).grid(row=2, column=0, sticky=W)
+        self.file_artemis = Button(image_artemis, text="Load file", command = lambda : self.Load_file_to_compare(self.file_low_1_add, 0, self.file_optionlist_1, self.file_set_1 ))
+        self.file_artemis.grid(row=2, column = 1, padx=5, pady=0)
+
+        self.draw_artemis = Button(image_artemis, text="Convert", state =DISABLED ,command = lambda : self.Graph_library(self.draw_top,self.pic_set_1, self.pic_set_2 ))
+        self.draw_artemis.grid(row=4, column = 0, padx=5, pady=0)
 
     ##### -------- ---------------- ---------------- ---------------- -------- Class Methods -------- ---------------- ---------------- ---------------- -------- #####
 
@@ -609,6 +624,16 @@ class TnBox():
         
         self.update_option_menu(optionlist, self.my_data["File"][position], set_var)
 
+
+    def Loaf_artemis(self, button):
+
+        self.my_data["Artemis_path"].clear()
+        my_data = fd.askopenfilename(initialdir="./data/", title="Select file")
+        self.my_data["Artemis_path"].append(my_data)
+        button.config(state=DISABLED, text = "Loaded")
+
+
+
     # -------- -------- -------- -------- Class function referring to the aligment -------- -------- -------- -------- #
 
     def tn(self, button, reference):
@@ -760,6 +785,24 @@ class TnBox():
         #Reactivate the button
         button.config(state=NORMAL)
 
+    # -------- -------- -------- -------- Class function for the artemis processing -------- -------- -------- -------- #
+
+
+    def launch_artemis(self, button):
+
+        #Get the file to index
+        input_p = self.my_data["Artemis_path"][0]
+
+        #Check the output
+        output_p = fd.asksaveasfilename(confirmoverwrite=True, title = "Select file",filetypes = (("TXT Files","*.txt"),))
+
+        button.config(state=DISABLED)
+        #Check a save file has been selected and start computing
+        if output_p is None:  # user selected file
+            button.config(state=NORMAL)
+            return
+        else : Artemis(input_p, output_p ,control)
+        button.config(state=NORMAL)
 
      # -------- -------- -------- -------- Make some Graph -------- -------- -------- -------- #
 
