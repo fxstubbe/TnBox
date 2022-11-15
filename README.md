@@ -24,10 +24,11 @@ TnBox comes as a simple python program that works on both macOS and Linux system
 Paste the following commands in a terminal
 
 ```sh
-conda install -c bioconda bwa
-conda install -c bioconda samtools
-conda install -c bioconda bedtools
-conda install -c anaconda git
+conda install -y -c bioconda bwa
+conda install -y -c bioconda samtools
+conda install -y -c bioconda bedtools
+conda install -y -c anaconda git
+conda install -y -c conda-forge biopython
 ```
 #### Install python packages with conda on linux/macOS systems
 
@@ -36,13 +37,13 @@ conda install -c anaconda git
 - [Matplotlib][bwa] 
 - [Searborn][samtools]
 
-Paste the following commands in a terminal
+Paste the following commands (one by one) in a terminal
 
 ```sh
-conda install -c anaconda numpy
-conda install -c anaconda pandas
-conda install -c anaconda matplotlib
-conda install -c anaconda searborn
+conda install -y -c anaconda numpy
+conda install -y -c anaconda pandas
+conda install -y -c anaconda matplotlib
+conda install -y -c anaconda searborn
 ```
 
 #### Setting up and testing TnBox
