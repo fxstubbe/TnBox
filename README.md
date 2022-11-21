@@ -26,7 +26,7 @@ Paste the following commands in a terminal
 
 ```sh
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools
+conda install -y -c bioconda samtools=1.9
 conda install -y -c bioconda bedtools
 conda install -y -c anaconda git
 conda install -y -c conda-forge biopython
