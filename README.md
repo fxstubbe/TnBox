@@ -72,7 +72,7 @@ On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox f
 
 ## Analysis
 
-![](https://github.com/fxstubbe/TnBox/blob/main/Images/TnBox.png)
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/Tnbox.png)
 
 ### 1. Process libraries
 
