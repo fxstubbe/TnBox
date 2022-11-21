@@ -53,11 +53,14 @@ class TnBox():
         self.my_data["Delta_path"] = list()
 
         #Initiate an empty graph key
-        self.my_data["Graph"] = ["     "]
+        self.my_data["Graph"] = [" --"]
         self.my_data["Graph_path"] = list()
 
         #Empty file to compare
         self.my_data["File_compare"] = ["", ""]
+
+        #Empty artemis path
+        self.my_data["Artemis_path"] = list()
 
         #
         self.my_data["File"] = [[""], [""]]
@@ -71,37 +74,44 @@ class TnBox():
 
         master.title("A TN-seq Toolbox")
         # Create left and right frames
-        left_frame = Frame(master, width=300, height=400, bg='lightgrey')
+        left_frame = Frame(master, width=200, height=620, bg='lightgrey')
         left_frame.grid(row=0, column=0, padx=10, pady=5, rowspan = 2)
+        left_frame.grid_propagate(False)
 
-        right_frame = Frame(master, width=300, height=300, bg='lightgrey')
+        right_frame = Frame(master, width=400, height=450, bg='lightgrey')
         right_frame.grid(row=0, column=1, padx=10, pady=5)
+        right_frame.grid_propagate(False)
 
-        lower_frame = Frame(master, width = 300, height = 100, bg='lightgrey')
+        lower_frame = Frame(master, width = 400, height = 250, bg='lightgrey')
         lower_frame.grid(row=1, column=1, padx=10, pady=5)
+        lower_frame.grid_propagate(False)
 
-        image_frame =  Frame(master, width=300, height=400, bg='lightgrey')
+        image_frame =  Frame(master, width=510, height=430, bg='lightgrey')
         image_frame.grid(row=0, column=2, padx=10, pady=5, rowspan = 2)
+        image_frame.grid_propagate(False)
 
     # -------- -------- Define sub panels -------- -------- #
 
         #------- The Library Processing panel
         # Create tool bar frame
-        library_bar = Frame(left_frame, width=180, height=40)
+        library_bar = Frame(left_frame, width=190, height=70)
         library_bar.grid(row=1, column=0, padx=5, pady=5)
+        library_bar.grid_propagate(False)
 
         # Create tool bar frame
-        tool_bar = Frame(left_frame, width=180, height=185)
+        tool_bar = Frame(left_frame, width=190, height=220)
         tool_bar.grid(row=2, column=0, padx=5, pady=5)
+        tool_bar.grid_propagate(False)
 
         # Create tool bar frame
-        file_bar = Frame(left_frame, width=180, height=185)
+        file_bar = Frame(left_frame, width=190, height=220)
         file_bar.grid(row=3, column=0, padx=5, pady=5)
+        file_bar.grid_propagate(False)
 
         # Create tool bar frame
-        file_lower = Frame(left_frame, width=180, height=185)
+        file_lower = Frame(left_frame, width=190, height=30)
         file_lower.grid(row=4, column=0, padx=5, pady=5)
-
+        file_lower.grid_propagate(False)
 
         #------- The tools and metrics panel
  
@@ -110,35 +120,40 @@ class TnBox():
         gff_bar.grid(row = 1, column = 0, padx=5, pady=5)
 
         #algorith choice
-        gff_bar_list = Frame(right_frame, width = 300, height = 80)
+        gff_bar_list = Frame(right_frame, width = 390, height = 250)
         gff_bar_list.grid(row=3,column=0, padx=5, pady=5)
-
+        gff_bar_list.grid_propagate(False)
 
         #------- The indexing panel
 
-        index_bar = Frame(lower_frame, width = 300, height = 20)
+        index_bar = Frame(lower_frame, width = 390, height = 100)
         index_bar.grid(row = 1, column = 0, padx=5, pady=5)
+        index_bar.grid_propagate(False)
 
         #------- The delta panel
 
-        delta_bar = Frame(lower_frame, width = 300, height = 20)
+        delta_bar = Frame(lower_frame, width = 390, height = 100)
         delta_bar.grid(row = 2, column = 0, padx=5, pady=5)
+        delta_bar.grid_propagate(False)
 
         #------- An image panel
 
-        image_artemis = Frame(image_frame, width = 300, height = 300)
+        image_artemis = Frame(image_frame, width = 500, height = 100)
         image_artemis.grid(row = 1, column = 0, padx=5, pady=5)
-        image_top = Frame(image_frame, width = 300, height = 100)
+        image_artemis.grid_propagate(False)
+        image_top = Frame(image_frame, width = 500, height = 130)
         image_top.grid(row = 2, column = 0, padx=5, pady=5)
-        image_bottom = Frame(image_frame, width = 300, height = 300)
+        image_top.grid_propagate(False)
+        image_bottom = Frame(image_frame, width = 500, height = 130)
         image_bottom.grid(row = 3, column = 0, padx=5, pady=5)
+        image_bottom.grid_propagate(False)
 
 
 
     # -------- -------- Set up the Alignment panel -------- -------- #
 
         # Name the left frames
-        Label(left_frame, text = "1. Process Libraries",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=0)
+        Label(left_frame, text = "1. Process Libraries",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=5)
 
         # Add a checkbutton 
         Label(library_bar, text="1.1 Transposon fishing", font=("Arial Bold", 13)).grid(row=0, column=0, padx=5, pady=0)
@@ -152,7 +167,7 @@ class TnBox():
         # Add a listbox within the tool_bar
         Label(tool_bar, text="1.2 Select Reference Genome", font=("Arial Bold", 13)).grid(row=1, column=1, padx=5, pady=0)
         self.list_box = Listbox(tool_bar)
-        self.list_box.grid(column=0, row=2, columnspan = 2)
+        self.list_box.grid(column=0, row=2, columnspan = 2, padx = 5)
         self.refresh_list(self.list_box, "Databases")
         self.btn_list_ref = Button(tool_bar, text="Add", command = lambda : self.get_Reference(self.btn_list_ref))
         self.btn_list_ref.grid(column=1, row=3)
@@ -162,13 +177,13 @@ class TnBox():
         self.fastq_box = Listbox(file_bar)
         self.btn_fastq_add = Button(file_bar, text="Add", command = lambda : self.get_fastq(self.btn_fastq_rem))
         self.btn_fastq_rem = Button(file_bar, text="Remove", command = lambda: self.delete_item_listbox(self.fastq_box, "Experiment"))
-        self.fastq_box.grid(column=0, row=1, columnspan = 2)
+        self.fastq_box.grid(column=0, row=1, columnspan = 2, padx = 5)
         self.btn_fastq_add.grid(column=0, row=2, columnspan = 1)
         self.btn_fastq_rem.grid(column=1, row=2)
 
         # Add a button on the bottom left
         self.button_get_tnseq = Button(file_lower, text = "Start Analysis", command = lambda : self.launch_tnseq(self.button_get_tnseq))
-        self.button_get_tnseq.grid(row=0, column=0, columnspan = 2)
+        self.button_get_tnseq.grid(row=0, column=0, padx=35)
 
 
     # -------- -------- Set up the GFF panel & Metrics  -------- -------- #
@@ -242,11 +257,11 @@ class TnBox():
 
         # Open file of interest
         Label(index_bar, text = "Choose file : ",  font=("Arial ", 13)).grid(row=1, column=0, sticky=W)
-        self.file_to_ref_add = Button(index_bar, text="Load file", command = lambda : self.get_file_to_index(self.file_to_ref_add))
+        self.file_to_ref_add = Button(index_bar, text="Load file", command = lambda : self.Load_OptionMenu(self.file_to_ref_add, self.my_data["Index"], self.my_data["Index_path"], [(self.index_optionlist,self.index_set )], [self.file_to_ref_del, self.file_to_ref_add, self.index_btn]))
         self.file_to_ref_add.grid(column=1, row=1, padx=5, pady=0)
 
         # remove file of interest
-        self.file_to_ref_del = Button(index_bar, text="Unload", state =DISABLED , command = lambda: self.unload_file_to_index(self.file_to_ref_del))  
+        self.file_to_ref_del = Button(index_bar, text="Unload", state =DISABLED , command = lambda: self.Unload_OptionMenu(self.file_to_ref_add, self.my_data["Index"], self.my_data["Index_path"], [(self.index_optionlist,self.index_set )], [self.file_to_ref_del, self.file_to_ref_add, self.index_btn]))  
         self.file_to_ref_del.grid(column=2, row=1, padx=5, pady=0)
 
         # OptionMenu to select the library you wanna use as index
@@ -268,11 +283,11 @@ class TnBox():
 
         # Open file of interest
         Label(delta_bar, text = "Choose file : ",  font=("Arial ", 13)).grid(row=1, column=0, sticky=W)
-        self.file_to_delta_add = Button(delta_bar, text="Load file", command = lambda : self.get_file_to_delta(self.file_to_delta_add))
+        self.file_to_delta_add = Button(delta_bar, text="Load file", command = lambda : self.Load_OptionMenu(self.file_to_delta_add, self.my_data["Delta"], self.my_data["Delta_path"], [(self.delta_optionlist, self.delta_set)], [self.file_to_delta_del,self.file_to_delta_add, self.delta_btn]))
         self.file_to_delta_add.grid(column=1, row=1, padx=5, pady=0)
 
         # remove file of interest
-        self.file_to_delta_del = Button(delta_bar, text="Unload", state =DISABLED , command = lambda: self.unload_file_to_delta(self.file_to_delta_del))  
+        self.file_to_delta_del = Button(delta_bar, text="Unload", state =DISABLED , command = lambda: self.Unload_OptionMenu(self.file_to_delta_add, self.my_data["Delta"], self.my_data["Delta_path"], [(self.delta_optionlist, self.delta_set)], [self.file_to_delta_del,self.file_to_delta_add, self.delta_btn]))  
         self.file_to_delta_del.grid(column=2, row=1, padx=5, pady=0)
 
         # OptionMenu to select the library you wanna use as index
@@ -292,17 +307,17 @@ class TnBox():
         Label(image_frame, text = "4. Explore (Graphical options)",  font=("Arial Bold", 15)).grid(row=0, column=0, padx=5, pady=5, columnspan = 2)
         
 
-        #-------- Top panel, let's set up a TnIF panel
+        #-------- 2 Libraries from a single file
 
         Label(image_top, text = "Explore up to 2 libraries from a single file",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 2 ,sticky=W)
 
         #Make a button to load file to graph
         Label(image_top, text = "Load file : ",  font=("Arial", 13)).grid(row=1, column=0,sticky=W)
-        self.file_to_graph_add = Button(image_top, text="Load file", command = lambda : self.Load_file_image(self.file_to_ref_add))
+        self.file_to_graph_add = Button(image_top, text="Load file", command = lambda : self.Load_OptionMenu(self.file_to_graph_add, self.my_data["Graph"], self.my_data["Graph_path"], [(self.pic_optionlist_1, self.pic_set_1), (self.pic_optionlist_2, self.pic_set_2)], [self.file_to_graph_remove,self.draw_top, self.file_to_graph_add]))
         self.file_to_graph_add.grid(row=1, column = 1, padx=5, pady=0)
 
         #Make a button to load file to graph
-        self.file_to_graph_remove = Button(image_top, text="Unload", state =DISABLED ,command = lambda : self.Unload_file_image(self.file_to_ref_add))
+        self.file_to_graph_remove = Button(image_top, text="Unload", state =DISABLED ,command = lambda : self.Unload_OptionMenu(self.file_to_graph_add, self.my_data["Graph"], self.my_data["Graph_path"], [(self.pic_optionlist_1, self.pic_set_1), (self.pic_optionlist_2, self.pic_set_2)], [self.file_to_graph_add], [self.file_to_graph_remove,self.draw_top] ))
         self.file_to_graph_remove.grid(row=1, column = 2, padx=5, pady=0)
 
         #Load a file to graph from
@@ -322,7 +337,7 @@ class TnBox():
         self.draw_top.grid(row=4, column = 0, padx=5, pady=0)
 
 
-        #-------- bottom  panel, let's set up a TnIF panel
+        #-------- 2 libraries from 2 different files
 
         Label(image_bottom, text = "Compare 2 libraries from 2 different files (e.g. RSlide vs TnIF)",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 3,sticky=W)
         Label(image_bottom, text = "Files must use the same reference (e.g. Melitensis 16MM) ",  font=("Arial", 13)).grid(row=1, column=0, columnspan = 3,sticky=W)
@@ -348,15 +363,15 @@ class TnBox():
         self.draw_bottom.grid(row=4, column = 0, padx=5, pady=0)
 
 
-        #-------- An artenis Panel
+        #-------- An artemis Panel
         Label(image_artemis, text = "Make an Artemis File",  font=("Arial Bold", 14)).grid(row=0, column=0, columnspan = 3,sticky=W)
         Label(image_artemis, text = "Convert a coverage file into an artemis compatible file) ",  font=("Arial", 13)).grid(row=1, column=0, columnspan = 3,sticky=W)
 
         Label(image_artemis, text = "Select covetage file : ",  font=("Arial", 13)).grid(row=2, column=0, sticky=W)
-        self.file_artemis = Button(image_artemis, text="Load file", command = lambda : self.Load_file_to_compare(self.file_low_1_add, 0, self.file_optionlist_1, self.file_set_1 ))
+        self.file_artemis = Button(image_artemis, text="Load file", command = lambda : self.Load_artemis(self.file_artemis))
         self.file_artemis.grid(row=2, column = 1, padx=5, pady=0)
 
-        self.draw_artemis = Button(image_artemis, text="Convert", state =DISABLED ,command = lambda : self.Graph_library(self.draw_top,self.pic_set_1, self.pic_set_2 ))
+        self.draw_artemis = Button(image_artemis, text="Convert", state =DISABLED ,command = lambda : self.launch_artemis(self.draw_artemis))
         self.draw_artemis.grid(row=4, column = 0, padx=5, pady=0)
 
     ##### -------- ---------------- ---------------- ---------------- -------- Class Methods -------- ---------------- ---------------- ---------------- -------- #####
@@ -473,141 +488,53 @@ class TnBox():
 
     # -------- -------- -------- -------- Class function referring to path (get_file) -------- -------- -------- -------- #
 
-    def get_file_to_index(self, button):
 
-        #Make sure to empty the dictionnary from previous input files
-        self.my_data["Index"].clear()
-        self.my_data["Index_path"].clear()
+    # -------- -------- Load/unload files -------- -------- #
 
-        #Add the colomn names (except GFF columns) into a newly made index key
-        my_data = fd.askopenfilename(initialdir="/", title="Select file")
-        #Store the Index path
-        self.my_data["Index_path"].append(my_data)
-        #Read the file
-        data = pd.read_csv(my_data)
-        #Get the colnames of interest
-        my_files = list(data.columns.values)[12:]
-        #Update the 
-        self.my_data["Index"].extend(my_files) 
+    #Options Menus
+    def Load_OptionMenu(self, button, key_file, key_path, tuple_option_list, buttons_switch) : 
 
-        #Update the option Menu
-        self.update_option_menu(self.index_optionlist, self.my_data["Index"], self.index_set )
-        
-        #Change state of indexing buttons
-        self.file_to_ref_del.config(state=NORMAL)
-        self.file_to_ref_add.config(text = "File Loaded", state=DISABLED)
-        self.index_btn.config(state=NORMAL)
+        #Make sure the catching keys/arguments are empty
+        key_file.clear()
+        key_path.clear()
 
-    def unload_file_to_index(self, button):
-
-        #Make sure to empty the dictionnary from previous input files
-        self.my_data["Index"].clear()
-        self.my_data["Index_path"].clear()
-
-        #Update the option Menu
-        self.update_option_menu(self.index_optionlist, self.my_data["Index"], self.index_set )
-        self.index_set.set("--")
-        
-        #Change state of indexing buttons
-        self.file_to_ref_del.config(state=DISABLED)
-        self.file_to_ref_add.config(text = "Load File", state=NORMAL)
-        self.index_btn.config(state=DISABLED)
-
-
-    def get_file_to_delta(self, button):
-
-        #Make sure to empty the dictionnary from previous input files
-        self.my_data["Delta"].clear()
-        self.my_data["Delta_path"].clear()
-
-
-        print(self.my_data)
-
-        #Add the colomn names (except GFF columns) into a newly made index key
-        my_data = fd.askopenfilename(initialdir="/", title="Select file")
-        #Store the Index path
-        self.my_data["Delta_path"].append(my_data)
-        #Read the file
-        data = pd.read_csv(my_data)
-        #Get the colnames of interest
-        my_files = list(data.columns.values)[12:]
-        #Update the 
-        self.my_data["Delta"].extend(my_files) 
-
-        #Update the option Menu
-        self.update_option_menu(self.delta_optionlist, self.my_data["Delta"], self.delta_set )
-        
-        #Change state of indexing buttons
-        self.file_to_delta_del.config(state=NORMAL)
-        self.file_to_delta_add.config(text = "File Loaded", state=DISABLED)
-        self.delta_btn.config(state=NORMAL)
-
-    def unload_file_to_delta(self, button):
-
-        #Make sure to empty the dictionnary from previous input files
-        self.my_data["Delta"].clear()
-        self.my_data["Delta_path"].clear()
-
-        #Update the option Menu
-        self.update_option_menu(self.delta_optionlist, self.my_data["Delta"], self.delta_set )
-        self.delta_set.set("--")
-        
-
-        print(self.my_data)
-
-        #Change state of indexing buttons
-        self.file_to_delta_del.config(state=DISABLED)
-        self.file_to_delta_add.config(text = "Load File", state=NORMAL)
-        self.delta_btn.config(state=DISABLED)
-
-    def Load_file_image(self, button):
-
-        #Make sure to empty the dictionnary from previous input files
-        self.my_data["Graph"].clear()
-        self.my_data["Graph_path"].clear()
-
-        #Add the colomn names (except GFF columns) into a newly made index key
-        my_data = fd.askopenfilename(initialdir="/", title="Select file")
-
-        #Store the Index path
-        self.my_data["Graph_path"].append(my_data)
-
-        #Read the file
+        #Get the file to read
+        my_data = fd.askopenfilename(initialdir=os.getcwd(), title="Select file")
         data = pd.read_csv(my_data)
 
-        #Get the colnames of interest
+        #Store the Index path
+        key_path.append(my_data)
+
+        #Get the columns
         my_files = list(data.columns.values)[12:]
-        #print(my_files)
 
-        #Update the 
-        self.my_data["Graph"].extend(my_files) 
+        #Update the key_file argument
+        key_file.extend(my_files) 
 
-        #Update the option Menu
-        self.update_option_menu(self.pic_optionlist_1, self.my_data["Graph"], self.pic_set_1 )
-        self.update_option_menu(self.pic_optionlist_2, self.my_data["Graph"], self.pic_set_2 )
+        #Update the option_menu(s) 
+        for tp in tuple_option_list : 
+            option_list, option_set = tp
+            self.update_option_menu(option_list, key_file, option_set)
 
-        #Unload the Button
-        self.file_to_graph_add.config(text = "Loaded" , state=DISABLED)
-        self.file_to_graph_remove.config(state=NORMAL)
-        self.draw_top.config(state=NORMAL)
+        #Change button state
+        for btn in buttons_switch : switchButtonstate(btn)
 
-    def Unload_file_image(self, button):
+    def Unload_OptionMenu(self, button, key_file, key_path, tuple_option_list, buttons_switch):
 
         #Make sure to empty the dictionnary from previous input files
-        self.my_data["Graph"].clear()
-        self.my_data["Graph_path"].clear()
+        key_file.clear()
+        key_path.clear()
 
         #Update the option Menu
-        self.update_option_menu(self.pic_optionlist_1, self.my_data["Graph"], self.pic_set_1 )
-        self.update_option_menu(self.pic_optionlist_2, self.my_data["Graph"], self.pic_set_2 )
-        self.pic_set_1.set("     ")
-        self.pic_set_2.set("     ")
-                    
-        #Change state of indexing buttons
-        self.draw_top.config(state=DISABLED)
-        self.file_to_graph_add.config(text = "Load", state=NORMAL)
-        self.file_to_graph_remove.config(state=DISABLED)
+        for tp in tuple_option_list : 
+            option_list, option_set = tp
+            self.update_option_menu(option_list, key_file, option_set)
+            option_set.set("   ")
 
+        #Change button state
+        for btn in buttons_switch : switchButtonstate(btn)
+
+    # Two files for the comparison grahs    
     def Load_file_to_compare(self, button, position, optionlist, set_var):
 
         #Make sure to empty the dictionnary from previous input files
@@ -624,15 +551,14 @@ class TnBox():
         
         self.update_option_menu(optionlist, self.my_data["File"][position], set_var)
 
-
-    def Loaf_artemis(self, button):
+    # an artemis    
+    def Load_artemis(self, button):
 
         self.my_data["Artemis_path"].clear()
-        my_data = fd.askopenfilename(initialdir="./data/", title="Select file")
+        my_data = fd.askopenfilename(initialdir=f"{os.getcwd()}/data/", title="Select file")
         self.my_data["Artemis_path"].append(my_data)
         button.config(state=DISABLED, text = "Loaded")
-
-
+        self.draw_artemis.config(state=NORMAL)
 
     # -------- -------- -------- -------- Class function referring to the aligment -------- -------- -------- -------- #
 
@@ -655,8 +581,7 @@ class TnBox():
             self.refresh_list(self.TnIF_box, "TnIF")
             #self.update_option_menu(self.reftnif_optionlist, self.my_data["TnIF"], self.reftnif_set )
             #self.update_option_menu(self.refta_optionlist, self.my_data["TnIF"], self.refta_set )
-        button.config(text = "Done !")
-
+        button.config(state =NORMAL)
 
     def launch_tnseq(self,button):
 
@@ -717,7 +642,6 @@ class TnBox():
             #Check the method
             if method == 1 : 
                 my_method = "TnIF"
-
 
             else : 
                 my_method = "R100"
@@ -785,7 +709,20 @@ class TnBox():
         #Reactivate the button
         button.config(state=NORMAL)
 
+
     # -------- -------- -------- -------- Class function for the artemis processing -------- -------- -------- -------- #
+
+
+    def artemis(self, input_p, output_p):
+
+        #Launch function
+        Artemis(input_p, output_p)
+
+        #Empty the Artemis path
+        self.my_data["Artemis_path"].clear()
+
+        #Change the button state
+        self.file_artemis.config(state=NORMAL, text = "Load")
 
 
     def launch_artemis(self, button):
@@ -796,20 +733,25 @@ class TnBox():
         #Check the output
         output_p = fd.asksaveasfilename(confirmoverwrite=True, title = "Select file",filetypes = (("TXT Files","*.txt"),))
 
-        button.config(state=DISABLED)
+
         #Check a save file has been selected and start computing
         if output_p is None:  # user selected file
             button.config(state=NORMAL)
             return
-        else : Artemis(input_p, output_p ,control)
-        button.config(state=NORMAL)
+        else : 
+            #Start here
+            button.config(state=DISABLED)
+            lala = [input_p, output_p]
+            print(lala)
+            threading.Thread(target = self.artemis, args=lala).start() 
+
+
 
      # -------- -------- -------- -------- Make some Graph -------- -------- -------- -------- #
 
-    def Create_figure(self, button):
+   # def Create_figure(self, button):
 
-
-        return Figure
+   #     return Figure
 
     def Graph_library(self, button, set_var_1, set_var_2):
 
@@ -861,5 +803,11 @@ class TnBox():
 
     ##### -------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- -------- #####
 
+# General function switching button state
 
+def switchButtonstate(button):
+    if button['state'] == NORMAL :
+        button['state'] = DISABLED
+    else : 
+        button['state'] = NORMAL
 

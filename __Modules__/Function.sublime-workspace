@@ -1,0 +1,384 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"__",
+				"__Modules__"
+			],
+			[
+				"librar",
+				"library_2"
+			],
+			[
+				"libra",
+				"library_2"
+			],
+			[
+				"colu",
+				"columns"
+			],
+			[
+				"librayr",
+				"library_1"
+			],
+			[
+				"compile",
+				"compile_index"
+			],
+			[
+				"D",
+				"DISABLED"
+			],
+			[
+				"colum",
+				"columnspan"
+			],
+			[
+				"pri",
+				"printed_img"
+			],
+			[
+				"ima",
+				"image_frame"
+			],
+			[
+				"get",
+				"getcwd"
+			],
+			[
+				"col",
+				"columnspan"
+			],
+			[
+				"Image",
+				"ImageTk"
+			],
+			[
+				"right",
+				"right_frame"
+			],
+			[
+				"ge",
+				"genomefasta"
+			],
+			[
+				"fastq",
+				"fastq1"
+			],
+			[
+				"genec",
+				"genecoord"
+			],
+			[
+				"genem",
+				"genomefasta"
+			],
+			[
+				"City",
+				"CityForm"
+			],
+			[
+				"all",
+				"all_todo_items"
+			],
+			[
+				"fea",
+				"feature_ID"
+			],
+			[
+				"gene",
+				"gene_ID"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package control ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/Reads/bbduk_trim.sh",
+		"/Users/stubbf02/Desktop/Py_project/ToolBox/__Modules__/tkin2.py",
+		"/Users/stubbf02/Desktop/Py_project/ToolBox/__Modules__/Indexing.py",
+		"/Users/stubbf02/Desktop/Py_project/ToolBox/__Modules__/Artemis.py",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/fake_genome/bam/hisat2.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/fake_genome/bam/index.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/fake_genome/bam/hisat2 copy.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/bigwig/deeptools.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/bam/1120964.bam",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/index_bam.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/hisat2.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/sort.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/salmon.sh",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/run.py",
+		"/Users/stubbf02/Desktop/conda.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Class.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Reference.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Modules.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/tkin2.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Indexing.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Function.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Library.py",
+		"/Users/stubbf02/Desktop/Histones/CapSeq/commands",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/BW/Convert.sh",
+		"/Users/stubbf02/Desktop/ChIP_Pol/get_matrix.sh",
+		"/Users/stubbf02/Desktop/ChIP_Pol/wigTobw.sh",
+		"/Users/stubbf02/Desktop/TES/Convert.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BW/deeptools.sh",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/__Modules__/Window.py",
+		"/Users/stubbf02/Desktop/Py_project/Toolbox/Class.py",
+		"/Users/stubbf02/Desktop/Py_project/TN/Function.py",
+		"/Users/stubbf02/Desktop/Py_project/TN/Class.py",
+		"/Users/stubbf02/Desktop/TN/Init.py",
+		"/Users/stubbf02/Desktop/GSE157416_Worm_Wide_Starved_pass_barcode02.genes.details.csv.gz",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BAM/BAMtoBW.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BAM/split.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BAM/Reads_retrieve.sh",
+		"/Volumes/FX_MyPassport/Projects/Eme/Reads/HiSeq_oldMethod/mapping.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BAM/Bam_to_BW.sh",
+		"/Volumes/FX_MyPassport/Projects/Fx/NGS/RNA/SSU72/BAM/Sort_Index.sh",
+		"/Users/stubbf02/Desktop/Genome_mapping_2018.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/rn4220/Screen/hlb/blast_contigs_vs_reference.sh",
+		"/Users/stubbf02/Downloads/rna-polymerase-ii-ctd-s2p-is-dispensable-for-embryogenesis-but-mediates-exit-from-developmental-diapause-in-c.-elegans.bib",
+		"/Volumes/FX_MyPassport/Projects/Eme/Reads/NextSeq_newMethod/bedgraph.sh",
+		"/Volumes/FX_MyPassport/Projects/Magda/Oxidative_evolved/SNP_finder.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Rob/Deletion/blast_contigs_vs_reference.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Rob/Deletion/Fasta/mosaic phi11 total NA.fna",
+		"/Volumes/Fx_HDD1/Projects/Eme/Reads/HiSeq_oldMethod/mapping.sh",
+		"/Volumes/Fx_HDD1/Projects/Eme/Reads/NextSeq_newMethod/mapping.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Rob/hmmscan_test.sh",
+		"/Volumes/FX-drive-2/shopsin/mecA/blast_contigs_vs_reference.sh",
+		"/Volumes/FX-drive-2/shopsin/SNP_discovery.sh",
+		"/Users/stubbf02/Desktop/Shopsin/try_path.py",
+		"/Users/stubbf02/Desktop/Shopsin/SNP_finder.py",
+		"/Users/stubbf02/Desktop/Charline/SNP_PE_Fx.py",
+		"/Users/stubbf02/Desktop/Shopsin/SNP_discovery.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/HyperHemo/MW2/Phage/blast_contigs_vs_reference.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/neighbor_phi/blast_contigs_vs_reference.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/mPhi_screen/blast_contigs_vs_reference.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/mPhi_screen/MapHit.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/NR4220_supp/SNP_paired copy/SNPs_Paired.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Magda/NR4220_supp/trial.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Exp4_Genetic_screen/Genome_analysis/gen_screen.py",
+		"/Volumes/Fx_HDD1/Projects/Eme/Reads/HiSeq_oldMethod/raw.sh",
+		"/Volumes/Fx_HDD1/Projects/Eme/Reads/Ancien_seq/mapping.sh",
+		"/Users/stubbf02/Desktop/Eme/Eme/mapping.sh",
+		"/Users/stubbf02/Desktop/RNA_seq/Salmon/Wcel235_index/duplicate_clusters.tsv",
+		"/Users/stubbf02/Desktop/RNA_seq/LITE-seq/Male_Female_Germline/Mapping.sh",
+		"/Users/stubbf02/Desktop/RNA_seq/LITE-seq/Male_Female_Germline/sra/Mapping.sh",
+		"/Users/stubbf02/Desktop/RNA_seq/LITE-seq/Male_Female_Germline/sra/fastq_dum.sh",
+		"/Users/stubbf02/Desktop/RNA_seq/LITE-seq/Reference/Index/wbcel235/make_wbcel235.sh",
+		"/Users/stubbf02/Desktop/RNA_seq/LITE-seq/Reference/Index/wbcel235.tar.gz",
+		"/Users/stubbf02/Desktop/Angy_check/RBH_Blast/RBH_blastp.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/PAPER/HGT/detectorigin.pl",
+		"/Users/stubbf02/Desktop/Angy-prot/Tree/index_root.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/PAPER/Root_Ochro/index_root.sh",
+		"/Users/stubbf02/Desktop/Trial/trydjango/templates/todo.html",
+		"/Users/stubbf02/Desktop/Trial/trydjango/Todo/views.py",
+		"/Users/stubbf02/Desktop/Trial/trydjango/Todo/models.py",
+		"/Users/stubbf02/Desktop/Trial/trydjango/trydjango/urls.py",
+		"/Users/stubbf02/Desktop/Trial/trydjango/trydjango/settings.py",
+		"/Users/stubbf02/Desktop/Trial/trydjango/Todo/admin.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/templates/home.html",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/templates/todo.html",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/todo/models.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/todo/views.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/trydjango/urls.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/trial/models.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/trydjango/settings.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/todo/migrations/__init.py",
+		"/Users/stubbf02/Desktop/trydjango/trydjango/livre/views.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/urls.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/templates/polls/index.html",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/views.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/livre/models.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/livre/admin.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/templates/index.html",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/admin.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/models.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/Book/urls.py",
+		"/Users/stubbf02/Desktop/BookSw/Book/polls/url.py",
+		"/Users/stubbf02/Desktop/Fran/Tn_Seq/Circos/Conf/circos_trial.conf",
+		"/Users/stubbf02/Desktop/pBSRC1_annotation.txt",
+		"/Users/stubbf02/Desktop/pBSRC1_karyotype.txt",
+		"/Users/stubbf02/Desktop/circos_trial.conf",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Exp4_Genetic_screen/gen_screen.py",
+		"/Users/stubbf02/Desktop/circos_trial.txt",
+		"/Users/stubbf02/Desktop/Fran/RBH/RBH_Blast/RBH.sh",
+		"/Users/stubbf02/Desktop/SeqDiv/SeqDiv.py",
+		"/Users/stubbf02/Desktop/SeqDiv/Analysis/Blast/T84471_20190226.final.contigs_MupA_BLAST.txt",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Shopsin/Namur/TFs/blast_files_gapeless/lblastn.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Shopsin/Namur/TFs/blast_files/lblastn.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/RBH/RBH_Blast/RBH_blastp.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/RBH/RBH_db/makedb.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/Rhizo_screen/RBH_Blast/RBH_blastp.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Angy/blast_vs_virulence_output/blast_contigs_vs_virulence.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/gen_screen.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/index.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/Lauch.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/Genome_mapping_2018.sh",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/vcf_filtering.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/trial2.py",
+		"/Users/stubbf02/Fx_Stubbe/Projects/Hermand/Genetic_screen/trial.py",
+		"/Users/stubbf02/Fx_Stubbe/ressources/tools/SNP_paired/SNPs_Paired.py",
+		"/Users/stubbf02/Fx_Stubbe/ressources/tools/snpEff/snpEff/snpEff.jar",
+		"/Users/stubbf02/Desktop/WGS_SNP",
+		"/Users/stubbf02/Desktop/vcf_filtering.py",
+		"/Users/stubbf02/Desktop/trial.py"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Function.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 197.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
