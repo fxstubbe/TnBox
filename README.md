@@ -55,6 +55,7 @@ conda install -y -c anaconda searborn
 
 To install TnBox, clone this repository using git : 
 ```sh
+cd ./Desktop
 git clone https://github.com/fxstubbe/TnBox
 ```
 Alternatively, you can also download TnBox using the green button at page's top.
