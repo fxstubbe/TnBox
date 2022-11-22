@@ -1,5 +1,6 @@
-# TnBox
-## _A Tn-seq Toolbox_
+# TnBox : A Tn-seq Tool Box
+
+## Introduction
 
 Since its introduction in micriobiology labs, massively parallel sequencing coupled with transposson mutagenesis (Tn-seq) has become an important tool for molecular microbiologist to gain insight into bacterial fitness. Tools for the anaylsis of such data exist (e.g. [Tn-seq Explorer][explorer]) but they're not trivial to use for non bioinformatician. 
 
