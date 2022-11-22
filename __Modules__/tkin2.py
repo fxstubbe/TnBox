@@ -53,7 +53,7 @@ class TnBox():
         self.my_data["Delta_path"] = list()
 
         #Initiate an empty graph key
-        self.my_data["Graph"] = [" --"]
+        self.my_data["Graph"] = [""]
         self.my_data["Graph_path"] = list()
 
         #Empty file to compare
@@ -317,7 +317,7 @@ class TnBox():
         self.file_to_graph_add.grid(row=1, column = 1, padx=5, pady=0)
 
         #Make a button to load file to graph
-        self.file_to_graph_remove = Button(image_top, text="Unload", state =DISABLED ,command = lambda : self.Unload_OptionMenu(self.file_to_graph_add, self.my_data["Graph"], self.my_data["Graph_path"], [(self.pic_optionlist_1, self.pic_set_1), (self.pic_optionlist_2, self.pic_set_2)], [self.file_to_graph_add], [self.file_to_graph_remove,self.draw_top] ))
+        self.file_to_graph_remove = Button(image_top, text="Unload", state =DISABLED ,command = lambda : self.Unload_OptionMenu(self.file_to_graph_add, self.my_data["Graph"], self.my_data["Graph_path"], [(self.pic_optionlist_1, self.pic_set_1), (self.pic_optionlist_2, self.pic_set_2)], [self.file_to_graph_add], [self.file_to_graph_remove,self.draw_top]))
         self.file_to_graph_remove.grid(row=1, column = 2, padx=5, pady=0)
 
         #Load a file to graph from
@@ -435,11 +435,9 @@ class TnBox():
 
     def get_Reference(self, button):
 
-        self.files=fd.askopenfilename(initialdir="/", title="Select file")
+        self.files=fd.askopenfilename(initialdir="./Desktop/", title="Select file")
+        if check_ext(Path(self.files), [".fasta" , ".fna"]) is True :
 
-        if is_fasta(self.files) is True :
-
-            print(self.my_data)
             #Update the reference
             self.my_data.update({"Reference" : self.files})
             make_reference(self.my_data["Reference"])
@@ -451,7 +449,9 @@ class TnBox():
 
             #Refresh list_box
             self.refresh_list(self.list_box, "Databases")
+        else : 
 
+            print("Not a valid file ! Database was not created !")
 
     def get_fastq(self, button):
 
@@ -462,7 +462,7 @@ class TnBox():
         else :
 
             #Check that all files are fastq
-            my_paths = list(map(is_fastq, self.files))
+            my_paths = list(map(is_fastq, [self.files, [".fastq", ".fastq.gz"]]))
             print(my_paths)
             if all(my_paths) :
 
@@ -470,9 +470,11 @@ class TnBox():
 
                 if len(list(self.my_data["Experiment"])) > 0 :
                     self.files.extend(list(self.my_data["Experiment"]))
+
                 #Catch files
                 self.my_data.update({"Experiment": list(set(self.files))})
                 print(self.my_data["Experiment"])
+
                 #Refresh the listbox
                 self.refresh_list(self.fastq_box, "Experiment")
             else :
@@ -508,16 +510,25 @@ class TnBox():
         #Get the columns
         my_files = list(data.columns.values)[12:]
 
-        #Update the key_file argument
-        key_file.extend(my_files) 
+        if len(my_files) < 1 : 
+            print("Not a valid file")
 
-        #Update the option_menu(s) 
-        for tp in tuple_option_list : 
-            option_list, option_set = tp
-            self.update_option_menu(option_list, key_file, option_set)
+        else : 
 
-        #Change button state
-        for btn in buttons_switch : switchButtonstate(btn)
+            #Update the key_file argument
+            key_file.extend(my_files) 
+
+            print(key_file)
+            print(key_path)
+     
+
+            #Update the option_menu(s) 
+            for tp in tuple_option_list : 
+                option_list, option_set = tp
+                self.update_option_menu(option_list, key_file, option_set)
+
+            #Change button state
+            for btn in buttons_switch : switchButtonstate(btn)
 
     def Unload_OptionMenu(self, button, key_file, key_path, tuple_option_list, buttons_switch):
 
@@ -803,11 +814,4 @@ class TnBox():
 
     ##### -------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- -------- #####
 
-# General function switching button state
-
-def switchButtonstate(button):
-    if button['state'] == NORMAL :
-        button['state'] = DISABLED
-    else : 
-        button['state'] = NORMAL
 

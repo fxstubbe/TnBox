@@ -23,7 +23,7 @@ def check_ext(filename, ext):
 
 def is_fasta(filename):
  """
- Check if the extension is fastq.gz
+ Check if the extension is fasta or fna
  """
  path = Path(filename)
  try:
@@ -55,6 +55,30 @@ def is_fastq(filename):
                 return False
         except IndexError:
             return False
+
+def check_ext(filename_p, extensions) :
+
+    filepath = Path(filename_p)
+    print(filepath.suffix)
+    print(extensions)
+    
+    # increment for each extension that match
+    catch = 0
+
+    #Check extensions
+    for ext in extensions : 
+        print(ext)
+        if filepath.suffix == ext : 
+            catch += 1
+
+    # Check if an extension was valid
+    if catch > 0 :
+        print("File has valid extension")
+        return True
+    else : 
+        print("File of unvalid extension")
+        return False
+
 def make_dir(dirname):
     dir = dirname
     if Path(dir).is_dir():
@@ -84,7 +108,11 @@ def ConvertTuple(my_tuple):
         return None
 
 
-
+def switchButtonstate(button):
+    if button['state'] == NORMAL :
+        button['state'] = DISABLED
+    else : 
+        button['state'] = NORMAL
 
 
 

@@ -43,7 +43,7 @@ class Reference(File):
 
     def bwa_index(self):
 
-        if check_ext(self.ledger["Path"], "fasta") :
+        if check_ext(self.ledger["Path"], [".fasta", ".fna"]) :
 
             #Create a directory with bwa_index
             index_dir = os.getcwd() + "/Database/"
@@ -68,7 +68,7 @@ class Library(File):
         bbduk = f"{os.getcwd()}/__Modules__/bbmap/bbduk.sh"
         adapters = f"{os.getcwd()}/__Modules__/bbmap/resources/adapters.fa"
 
-        if is_fastq(self.ledger["Path"]) :
+        if check_ext(self.ledger["Path"], [".fastq", ".fastq.gz"]) :
 
             #Catching files in Temp
             make_dir(self.temp_dir)
