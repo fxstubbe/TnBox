@@ -29,7 +29,7 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda install -y git
 conda install -y biopython
-conda install -y  bwa
+conda install -y bwa
 conda install -y bedtools
 conda install -y samtools=1.9
 ```
