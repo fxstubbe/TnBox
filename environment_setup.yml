@@ -1,0 +1,15 @@
+name: trial
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.6.*
+  - git
+  - biopython
+  - bwa
+  - bedtools
+  - samtools=1.9
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
