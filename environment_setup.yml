@@ -1,4 +1,4 @@
-name: trial
+name: tnbox
 channels:
   - conda-forge
   - bioconda
