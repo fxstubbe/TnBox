@@ -99,13 +99,13 @@ If you created a virtual environment using the environment_setup.yml file, then 
 conda activate tnbox
 ```
 
-You're now ready to start TnBox.
+You're now ready to start TnBox. Simply use python to launch the program.
 
 ```sh
 python TnBox.py
 ```
 
-TnBox is not working on your machine !
+If TnBox interface opened ... congratulations ! TnBox is now working on your machine !
 
 ## Analysis
 
