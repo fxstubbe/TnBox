@@ -66,7 +66,7 @@ conda install -y -c anaconda searborn
 ```
 
 
-### Installating and launching TnBox (not recommended)
+### Installating and launching TnBox 
 
 ##### Clone TnBox
 
@@ -85,18 +85,27 @@ git clone https://github.com/fxstubbe/TnBox
 
 Alternatively, you can also download TnBox using the green button at page's top.
 
-##### Setting up TnBox
+##### Clone TnBox
 
-If you correctly installed all the required repositories and packages, TnBox is ready to use as it is. To start the program, you need to cd into TnBox folder and TnBox.py.
-
-Assuming you've installed TnBox on the desktop; paste the following commands :
+TnBox is a program that needs to be launched from the terminal. Opeen a terminal and direct yourself in the TnBox folder. Assuming you've installed TnBox on your Desktop, use the command below. If you installed TnBox elsewhere, then you'll need to use the folder path.
 
 ```sh
 cd Desktop/TnBox/
+```
+
+If you created a virtual environment using the environment_setup.yml file, then you need to activate the environment. Simply paste the following command in the terminal.
+
+```sh
+conda activate tnbox
+```
+
+You're now ready to start TnBox.
+
+```sh
 python TnBox.py
 ```
 
-On the first use, TnBox will automatically clone [BBMAP][bbmap] into the TnBox folder. This steps is crucial and if not executed properly will lead to failure. If an interface opens up : congrats ! TnBox is now woriking on your computer
+TnBox is not working on your machine !
 
 ## Analysis
 
