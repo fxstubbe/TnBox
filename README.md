@@ -65,15 +65,24 @@ conda install -y -c anaconda matplotlib
 conda install -y -c anaconda searborn
 ```
 
-#### Setting up and testing TnBox
+
+### Installating and launching TnBox (not recommended)
 
 ##### Clone TnBox
 
-To install TnBox, clone this repository using git : 
+For simplicity of use, we will download TnBox on the deskop. Firstly, open a terminal an place yourself on the desktop. This can be done using cd (change directory)  as follow
+
 ```sh
 cd ./Desktop
 git clone https://github.com/fxstubbe/TnBox
 ```
+
+Once on the Desktop, download the repository with the following command
+
+```sh
+git clone https://github.com/fxstubbe/TnBox
+```
+
 Alternatively, you can also download TnBox using the green button at page's top.
 
 ##### Setting up TnBox
