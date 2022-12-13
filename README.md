@@ -85,7 +85,7 @@ git clone https://github.com/fxstubbe/TnBox
 
 Alternatively, you can also download TnBox using the green button at page's top.
 
-##### Clone TnBox
+##### Launch TnBox
 
 TnBox is a program that needs to be launched from the terminal. Opeen a terminal and direct yourself in the TnBox folder. Assuming you've installed TnBox on your Desktop, use the command below. If you installed TnBox elsewhere, then you'll need to use the folder path.
 
