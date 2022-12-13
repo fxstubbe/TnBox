@@ -5,16 +5,6 @@ from pathlib import Path
 #from __Modules__.Modules import *
 
 #---------------------#
-def check_ext(filename, ext):
-    """
-    Check the extension (only the last extension !)
-    check_ext(filename, "fasta")
-    """
-    path = Path(filename)
-    if path.suffix == ".{0}".format(str(ext)):
-        return True
-    else : False
-
 
 def make_dir(dirname):
     dir = dirname

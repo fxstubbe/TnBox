@@ -462,7 +462,7 @@ class TnBox():
         else :
 
             #Check that all files are fastq
-            my_paths = list(map(is_fastq, [self.files, [".fastq", ".fastq.gz"]]))
+            my_paths = list(map(check_ext, self.files, [".fastq"]))
             print(my_paths)
             if all(my_paths) :
 

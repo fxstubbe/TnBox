@@ -56,21 +56,20 @@ def is_fastq(filename):
         except IndexError:
             return False
 
-def check_ext(filename_p, extensions) :
+def check_ext(filename_p, extensions, comp = False) :
 
     filepath = Path(filename_p)
-    print(filepath.suffix)
-    print(extensions)
+    print( f"suffix = {filepath.suffixes}")
+    print(f"extensions checked = {extensions}")
     
     # increment for each extension that match
     catch = 0
 
-    #Check extensions
-    for ext in extensions : 
-        print(ext)
-        if filepath.suffix == ext : 
+    if any((match := item) in extensions for item in filepath.suffixes): 
             catch += 1
-
+            if comp is True and ".gz" not in filepath.suffixes : 
+                catch -= 1
+                
     # Check if an extension was valid
     if catch > 0 :
         print("File has valid extension")
