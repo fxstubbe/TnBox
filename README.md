@@ -15,6 +15,20 @@ For support, questions or requests, please contact: francois-xavier.stubbe@unamu
 
 TnBox comes as a simple python program that works on both macOS and Linux systems. However, a few dependencies need to be installed and set in your PATH. Similarly, a couple python packages need to be downloaded. There are many ways to install these but the eaisest way might be to use the python package manager [Anaconda][conda]. Since Anaconda comes along a version of python, it is not necessary to have python pre-installed on your machine.
 
+#### Creating a virtual environment (recommended)
+
+It is good practice to create a separate virtual environment for each project. You can create an enviroment called tnbox and containing all the required tools using the following command : 
+
+```sh
+conda env create -f environment_setup.yml
+```
+
+Before using TnBox, remember to activate the virtual environment. Simply paste the folllowing command in your terminal 
+
+```sh
+conda activate tnbox
+```
+
 #### Install dependencies with conda on linux/macOS systems
 
 - [Burrow Wheeler Aligner][bwa] 
