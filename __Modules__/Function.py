@@ -65,7 +65,7 @@ def check_ext(filename_p, extensions, comp = False) :
     # increment for each extension that match
     catch = 0
 
-    if any((match := item) in extensions for item in filepath.suffixes): 
+    if any( item in extensions for item in filepath.suffixes): 
             catch += 1
             if comp is True and ".gz" not in filepath.suffixes : 
                 catch -= 1

@@ -94,7 +94,7 @@ class Library(File):
             Cleaned = "{0}Cleaned_{1}.fastq.gz".format(self.temp_dir , self.ledger["Library"])
 
             #Create bbduk functions
-            cmd_qc= "{0} in={1} out={2} ftl=31 trimq=20 qtrim=rl k=23 minlen=35".format(bbduk, Trimmed, Cleaned)
+            cmd_qc= "{0} in={1} out={2} trimq=20 qtrim=rl k=23 minlen=35".format(bbduk, Trimmed, Cleaned)
 
             #Run the command
             subprocess.run(cmd_qc , shell = True)

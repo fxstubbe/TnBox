@@ -57,7 +57,7 @@ def compile_table(df, gff_p, output_p, graph_p, method, trim, Rwindow, Slide):
     for my_library in df:
 
     #Read the file
-        my_read = f"/Users/stubbf02/Desktop/Py_project/Toolbox/data/{my_library}.txt"
+        my_read = f"./Toolbox/data/{my_library}.txt"
         print(my_library)
         tnif = pd.read_csv(my_read, names = ['Chromosome', 'Position', 'Coverage'] ,delimiter = "\t")
         
