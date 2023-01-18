@@ -528,7 +528,8 @@ class TnBox():
                 self.update_option_menu(option_list, key_file, option_set)
 
             #Change button state
-            for btn in buttons_switch : switchButtonstate(btn)
+            for btn in buttons_switch : 
+            	switchButtonstate(btn)
 
     def Unload_OptionMenu(self, button, key_file, key_path, tuple_option_list, buttons_switch):
 
@@ -543,7 +544,8 @@ class TnBox():
             option_set.set("   ")
 
         #Change button state
-        for btn in buttons_switch : switchButtonstate(btn)
+        for btn in buttons_switch : 
+        	switchButtonstate(btn)
 
     # Two files for the comparison grahs    
     def Load_file_to_compare(self, button, position, optionlist, set_var):

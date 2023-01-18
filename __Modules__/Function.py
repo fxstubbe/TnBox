@@ -5,6 +5,7 @@ import pandas as pd
 import seaborn as sns
 from pathlib import Path
 from __Modules__.Library import *
+import tkinter as tk
 
 
 
@@ -108,10 +109,10 @@ def ConvertTuple(my_tuple):
 
 
 def switchButtonstate(button):
-    if button['state'] == NORMAL :
-        button['state'] = DISABLED
+    if button['state'] == tk.NORMAL :
+        button['state'] = tk.DISABLED
     else : 
-        button['state'] = NORMAL
+        button['state'] = tk.NORMAL
 
 
 
