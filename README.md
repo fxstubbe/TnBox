@@ -15,9 +15,34 @@ For support, questions or requests, please contact: francois-xavier.stubbe@unamu
 
 TnBox comes as a simple python program that works on both macOS and Linux systems. However, a few dependencies need to be installed and set in your PATH. Similarly, a couple python packages need to be downloaded. There are many ways to install these but the eaisest way might be to use the python package manager [Anaconda][conda]. Since Anaconda comes along a version of python, it is not necessary to have python pre-installed on your machine.
 
-### Creating a virtual environment (recommended)
 
-It is good practice to create a separate virtual environment for each project. You can create an enviroment called tnbox and containing all the required tools using the following command : 
+### Clone TnBox
+
+For simplicity of use, we will download TnBox on the deskop. Firstly, open a terminal an place yourself on the desktop. This can be done using cd (change directory)  as follow
+
+```sh
+cd ./Desktop
+git clone https://github.com/fxstubbe/TnBox
+```
+
+Once on the Desktop, download the repository with the following command
+
+```sh
+git clone https://github.com/fxstubbe/TnBox
+```
+
+Alternatively, you can also download TnBox using the green button at page's top.
+
+### Install depedencies and packages
+### #Creating a virtual environment (recommended)
+
+It is good practice to create a separate virtual environment for each project. An environment installation file is provided with tnbox. Open a terminal, go into the tnbox repository and create the environment using conda. 
+
+```sh
+cd Desktop/TnBox/
+```
+
+The environment contains all the tools that TnBox needs to analyze your Tn-seq experiment.
 
 ```sh
 conda env create -f environment_setup.yml
@@ -29,8 +54,16 @@ Before using TnBox, remember to activate the virtual environment. Simply paste t
 conda activate tnbox
 ```
 
-### Installation in main environment (not recommended)
-#### Install dependencies with conda on linux/macOS systems
+To close the tnbox environment, simply run
+
+```sh
+conda deactivate 
+```
+
+
+
+#### Installation in main environment (not recommended)
+##### Install dependencies with conda on linux/macOS systems
 
 - [Burrow Wheeler Aligner][bwa] 
 - [Samtools][samtools]
@@ -49,7 +82,7 @@ conda install -y bwa
 conda install -y bedtools
 conda install -y samtools=1.9
 ```
-#### Install python packages with conda on linux/macOS systems
+##### Install python packages with conda on linux/macOS systems
 
 - [Numpy][python]
 - [Pandas][bwa] 
@@ -66,24 +99,7 @@ conda install -y -c anaconda searborn
 ```
 
 
-### Installating and launching TnBox 
-
-##### Clone TnBox
-
-For simplicity of use, we will download TnBox on the deskop. Firstly, open a terminal an place yourself on the desktop. This can be done using cd (change directory)  as follow
-
-```sh
-cd ./Desktop
-git clone https://github.com/fxstubbe/TnBox
-```
-
-Once on the Desktop, download the repository with the following command
-
-```sh
-git clone https://github.com/fxstubbe/TnBox
-```
-
-Alternatively, you can also download TnBox using the green button at page's top.
+### Run TnBox 
 
 ##### Launch TnBox
 
