@@ -19,7 +19,6 @@ def make_reference(filename):
 def tn_seq(filename, reference, method, trim_trans,thread=4):
 
 	mini_tn5 = "GGTTGAGATGTGTATAAGAGACAG"
-	mariner = ""
 
     # Create a library object
 	Exp = Library(filename, "Exp")
@@ -33,7 +32,9 @@ def tn_seq(filename, reference, method, trim_trans,thread=4):
 		if trim_trans == 1 :
 			Exp.trim_transposon(mini_tn5)
 		else :
-			Exp.trim_transposon(mariner)
+			with open(f"{os.getcwd()}/custom_sequence.txt") as f:custom_sequence = f.read()
+
+			Exp.trim_transposon(custom_sequence.strip())
 
 	else : Exp.quality_trim()
 

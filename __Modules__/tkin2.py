@@ -74,7 +74,7 @@ class TnBox():
 
         master.title("A TN-seq Toolbox")
         # Create left and right frames
-        left_frame = Frame(master, width=200, height=620, bg='lightgrey')
+        left_frame = Frame(master, width=200, height=640, bg='lightgrey')
         left_frame.grid(row=0, column=0, padx=10, pady=5, rowspan = 2)
         left_frame.grid_propagate(False)
 
@@ -94,7 +94,7 @@ class TnBox():
 
         #------- The Library Processing panel
         # Create tool bar frame
-        library_bar = Frame(left_frame, width=190, height=70)
+        library_bar = Frame(left_frame, width=190, height=90)
         library_bar.grid(row=1, column=0, padx=5, pady=5)
         library_bar.grid_propagate(False)
 
@@ -158,10 +158,15 @@ class TnBox():
         # Add a checkbutton 
         Label(library_bar, text="1.1 Transposon fishing", font=("Arial Bold", 13)).grid(row=0, column=0, padx=5, pady=0)
         self.CheckVar= IntVar()
+
+        self.empty = Checkbutton(library_bar, text='none',variable=self.CheckVar, onvalue=0, offvalue=0)
+        self.empty.grid(column=0, row=1, sticky = W)
+
         self.check_library = Checkbutton(library_bar, text='miniTn5',variable=self.CheckVar, onvalue=1, offvalue=0)
-        self.check_library.grid(column=0, row=1, sticky = W)
-        self.check_library_mariner = Checkbutton(library_bar, text='mariner',variable=self.CheckVar, onvalue=2, offvalue=0)
-        self.check_library_mariner.grid(column=0, row=2, sticky = W)
+        self.check_library.grid(column=0, row=2, sticky = W)
+
+        self.check_library_mariner = Checkbutton(library_bar, text='custom',variable=self.CheckVar, onvalue=2, offvalue=0)
+        self.check_library_mariner.grid(column=0, row=3, sticky = W)
 
 
         # Add a listbox within the tool_bar
