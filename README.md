@@ -188,7 +188,7 @@ Parameter  | algorithm | Default | Description
 ------------- | ------------- | ------------- | ------------- 
 `Trim End`  |  RSlide, TnIF |  10% | 5' and 3'end trimming (10% = computing over central 80%)
 `R Windows` | Rslide | 200 nt | Size of the sliding window
-`Slide` | Rlside | 5 nt | increment between each sliding window
+`Slide` | Rslide | 5 nt | increment between each sliding window
 
 
 
@@ -200,7 +200,7 @@ When processing the libraries, TnBox generated 2 types of files :
 When the coverage was computed, only the read  5'end was kept. Therefore, only the transposon insertion site (TA) is kept. The term *TA* is used in reference to the mariner transposon which insert in TA rich regions. This is the preferred type for the `Rslide` algorithm.
 
 -  **TnIF (coverage) files** 
-Instead of only mapping the 5'end, the whole read is counted in the coverage file. Even if the the method is slightly less sensistive for the detection of essential genes with tge `Rslide` algorithmm, it performs better when using the `TnIF`. This is the preferred type for the `TnIF` algorithm. Please do not use the `TnIF` if your mutational library isn't saturating.
+Instead of only mapping the 5'end, the whole read is counted in the coverage file. Even if the the method is slightly less sensistive for the detection of essential genes with the `Rslide` algorithmm, it performs better when using the `TnIF`. This is the preferred type for the `TnIF` algorithm. Please do not use the `TnIF` if your mutational library isn't saturating.
 
 First and foremost, make sure you have selected the right reference in the previous section. Then, select the files in the listbox of interest (TA or TnIF). Simply press on the algorithm of choice and choose where you wanna save the output table. In the table, each selected file will be added as a column (genes are rows). Once the button unlock, the file has been saved. Feel free to launch multiple algorithms simultanously (might significantly slow down your computer).
 
@@ -221,6 +221,12 @@ It is to note that indexing will perform poorly on libraries with low diversity 
 For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF was computed for the tested condition (TnIFcdt) and the control condition (TnIFCTRL). The frequency distribution of ΔTnIF values was plotted for both chromosomes and for each tested condition (S6 Fig), to identify the main peak of unaffected ΔTnIF values and its standard deviation. 2% of ΔTnIF values at each extremity were removed to avoid an influence of extreme values, the standard deviation was calculated on this distribution. Depending on the conditions tested, the standard deviation ranged from 0.049 and 0.244. The ΔTnIF values larger than 0.5 were thus selected as significant, since they correspond to 2 to 5 standard deviations from the mode, designating genes for which the TnIF value was decreased compared to the control condition.
 
 ### 4. Explore
+
+#### 4.1 Artemis
+
+
+
+#### 4.1 Artemis
 
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/comp.png)
 
