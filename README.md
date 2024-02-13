@@ -125,7 +125,7 @@ If TnBox interface opened ... congratulations ! TnBox is now working on your mac
 
 ## Analysis
 
-![](Images/Tnbox.png)
+![]([Images/Tnbox.png](https://github.com/fxstubbe/TnBox/blob/main/Images/Tnbox.png)
 
 ### 1. Process libraries
 
