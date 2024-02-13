@@ -125,8 +125,7 @@ If TnBox interface opened ... congratulations ! TnBox is now working on your mac
 
 ## Analysis
 
-![](https://github.com/fxstubbe/TnBox/blob/main/Images/Tnbox.png)
-
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/Tnbox_main.png)
 ### 1. Process libraries
 
 The first step int any high throughput sequencing project is to map the sequencing reads onto a genome of interest. To do so, reads must first be trimmed of adapter and quality trimmed. Then, the processed reads are aliged onto an indexed genome using an aligner. TnBox uses [BBMAP][bbmap] for the filtering and [bwa][bwa] for the alignment. 
