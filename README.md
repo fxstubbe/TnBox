@@ -34,7 +34,7 @@ git clone https://github.com/fxstubbe/TnBox
 Alternatively, you can also download TnBox using the green button at page's top.
 
 ### Install depedencies and packages
-### #Creating a virtual environment (recommended)
+### Creating a virtual environment (recommended)
 
 It is good practice to create a separate virtual environment for each project. An environment installation file is provided with tnbox. Open a terminal, go into the tnbox repository and create the environment using conda. 
 
@@ -63,6 +63,9 @@ conda deactivate
 
 
 #### Installation in main environment (not recommended)
+
+If a virtual environment was set (previous step), then this step is not required.
+
 ##### Install dependencies with conda on linux/macOS systems
 
 - [Burrow Wheeler Aligner][bwa] 
