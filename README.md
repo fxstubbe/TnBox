@@ -135,11 +135,9 @@ The first step int any high throughput sequencing project is to map the sequenci
 
 #### 1.1 Transposon fishing
 
-We recommend sequencing of miniTn5 libraries with the [in-house transposon sequencing service][fasteris] provided by fasteris.
+In the past, Tn-seq libraries where often sequenced on Illumina HiSeq intruments. With those machines a nested strategy using a specific primer matching the 3'end of the transposon was used. Therefore, the first read base was the transposon insertion site. On newer machines (e.g. NextSeq, NovaSeq), sequencing reactions with specific primers aren't reliable. Libraires are now sequenced from the illumina adapters, which then re-sequence the end of the transposon. To separate specific from aspecific reads, it is necessary to separate reads containing the transposon from reads that do not (up to 35% of the library). 
 
-In the past, Tn-seq libraries where often sequenced on Illumina HiSeq intruments. With those machines a nested strategy using a specific primer matching the 3'end of the transposon. Therefore, the first read base was the transposon insertion site. On newer machines (e.g. NextSeq, NovaSeq), sequencing reactions with specific primers aren't reliable. Libraires are now sequenced from the illumina adapters, which then re-sequence the end of the transposon. To separate specific from aspecific reads, it is necessary to separate reads containing the transposon from reads that do not (up to 35% of the library). By checking the tickbox "miniTn5", TnBox will filter transposon containing reads and trim out the transposon sequence prior to mapping (bottom panel, image below). If omitted, lots of non-specific reads will map and weakened downstrean analysis. 
-
-Both Mariner and miniTn5 are available to parse. However, this methode has only been used and confirmed on miniTn5 libraires.
+This pipeline has been specifically designed for the analysis of miniTn5 libraries [in-house transposon sequencing service][fasteris] provided by fasteris. By checking the tickbox "miniTn5", TnBox will filter transposon containing reads and trim out the transposon sequence prior to mapping (bottom panel, image below). If the tickbox "none" is checked, then TnBox will directl align all the provided reads, without any filtering. A last option "custom sequence" is available for maximum flexibility. For this option to work, paste a sequence of interest in the file "custom sequence" (within TnBox directory). TnBox will use this sequence as template for read filtering.
 
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/aspecific_mapping.png)
 
