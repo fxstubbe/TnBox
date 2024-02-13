@@ -102,7 +102,7 @@ conda install -y -c anaconda searborn
 ```
 
 
-### Run TnBox 
+## Run TnBox 
 
 ##### Launch TnBox
 
