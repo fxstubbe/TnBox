@@ -210,11 +210,10 @@ If you're using the `Rslide` algorithm, skip this panel.
 
 #### 3.1 Indexing
 
-TnIf reprenset a bimodal distribution where the second peak of the distribution correspond to non-essential genes. To allow correct library comparison, it is best to *index* your library(ies) of interest on a control. To do so, an easy method is to simply divide by the mode of the second peak. I could easily be done manually but to simplify  the process, TnBox implements an indexing algorithm. 
-
-Simply load the file you desire to index, choose the library you wish to use as reference and start the indexing. 
-
+TnIf reprenset a bimodal distribution where the second peak of the distribution correspond to non-essential genes. To allow correct library comparison, it is best to *index* your library(ies) of interest on a control. To do so, an easy method is to simply divide by the mode of the second peak. It can easily be done manually but, to simplify  the process, TnBox implements an indexing algorithm. Simply load the file you desire to index, choose the library you wish to use as reference and start the indexing. 
 It is to note that indexing will perform poorly on libraries with low diversity (e.g. bottleneck effect). 
+
+![](https://github.com/fxstubbe/TnBox/blob/main/Images/Distribution.png)
 
 #### 3.1 Delta
 
