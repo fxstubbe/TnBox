@@ -224,7 +224,7 @@ For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF wa
 
 #### 4.1 Artemis
 
-This tools allows for quick visualisation within the [artemis] integrated visualisation platform [artemis]. Simply load the coverage file (either TA or TnIF). TnBox will simply format the coverage file into an artemis friendly file. One file will be created by chromosme.   
+This tools allows for quick visualisation within the [artemis] integrated visualisation platform. Simply load the coverage file (either TA or TnIF). TnBox will simply format the coverage file into an artemis friendly file. One file will be created by chromosme.   
 
 
 #### 4.1 Artemis
