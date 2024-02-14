@@ -226,22 +226,21 @@ For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF wa
 
 This tools allows for quick visualisation within the [artemis] integrated visualisation platform. Simply load the coverage file (either TA or TnIF). TnBox will simply format the coverage file into an artemis friendly file. One file will be created by chromosme.   
 
+#### 4.2 Explore 2 libraries from a single file
 
-#### 4.1 Artemis
+This tools allows for quick exploration of the generated data.
+
+#### 4.3 Explore 2 libraries from 2 files
+
+This tools allows for quick exploration of the generated data.
 
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/comp.png)
-
-## References
-
-There will be a couple of references
 
 ## License
 
 MIT
 
 **Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 [bwa]: https://sourceforge.net/projects/bio-bwa/files/
 [samtools]: http://www.htslib.org/
