@@ -232,7 +232,7 @@ This tools allows for quick exploration of the generated data.
 
 #### 4.3 Explore 2 libraries from 2 files
 
-This tools allows for quick exploration of the generated data.
+This tools allows for quick exploration of the generated data. The following plots show the correlation of the different coverage methods: TnIF (read coverage) on the y-axis &  TA (anchor site) on the x-axis. Left panel, data was analyzed with the R200 alogorithm. Right panel, data was analyzed with tge TnIF algorithm.
 
 ![](https://github.com/fxstubbe/TnBox/blob/main/Images/comp.png)
 
