@@ -224,6 +224,7 @@ For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF wa
 
 #### 4.1 Artemis
 
+This tools allows for quick visualisation within the [artemis] integrated visualisation platform [artemis]. Simply load the coverage file (either TA or TnIF). TnBox will simply format the coverage file into an artemis friendly file. One file will be created by chromosme.   
 
 
 #### 4.1 Artemis
@@ -255,6 +256,7 @@ MIT
 [sns]: https://seaborn.pydata.org/
 [bbmap]: https://github.com/BioInfoTools/BBMap
 [abortus]:https://www.ncbi.nlm.nih.gov/genome/520
+[artemis]:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3278759/
 [fasteris]:https://www.fasteris.com/en-us/NGS/DNA-sequencing/Tn-Seq
 [sternon]:https://journals.asm.org/doi/10.1128/IAI.00312-18
 [potemberg]: https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010621
