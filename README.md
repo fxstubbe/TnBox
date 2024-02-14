@@ -217,7 +217,10 @@ It is to note that indexing will perform poorly on libraries with low diversity 
 
 #### 3.1 Delta
 
-For each gene, a ΔTnIF (TnIFcdt−TnIFCTRL) value was calculated, where TnIF was computed for the tested condition (TnIFcdt) and the control condition (TnIFCTRL). The frequency distribution of ΔTnIF values was plotted for both chromosomes and for each tested condition (S6 Fig), to identify the main peak of unaffected ΔTnIF values and its standard deviation. 2% of ΔTnIF values at each extremity were removed to avoid an influence of extreme values, the standard deviation was calculated on this distribution. Depending on the conditions tested, the standard deviation ranged from 0.049 and 0.244. The ΔTnIF values larger than 0.5 were thus selected as significant, since they correspond to 2 to 5 standard deviations from the mode, designating genes for which the TnIF value was decreased compared to the control condition.
+To ease data interpretation, It can be useful to compute a ΔTnIF (TnIF cdt−TnIF CTRL), where TnIF was computed for the tested condition (TnIFcdt) and the control condition (TnIFCTRL). This is based on [Potemberg et al,.][potemberg]. 
+
+In their analysis, [Potemberg et al,.][potemberg] computed a standard deviation based on ΔTnIF distribution (chromosome wise). Those rnged from 0.049 to 0.244. The ΔTnIF values larger than 0.5 were  selected as significant, since they correspond to 2 to 5 standard deviations from the mode, designating genes for which the TnIF value was decreased compared to the control condition. At the moment TnBox does not compute standard deviation. However, one could manually assigned boundaries based on the distribution. 
+Nonetheless, this tool only has for objective to give wet lab scientists quick insight into their Tn-seq data, not perform more sofisticated analysis.
 
 ### 4. Explore
 
